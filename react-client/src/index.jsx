@@ -3,7 +3,6 @@ import ReactDom from 'react-dom';
 import styled from 'styled-components'
 
 const TEST_IMAGE_URL = 'https://massdrop-s3.imgix.net/product-images/massdrop-x-sennheiser-hd-58x-jubilee-headphones/FP/t9QmCD4rQEmdqhiXUZPN_AI7B6379%20copy.jpg?auto=format&fm=jpg&fit=crop&w=800&h=242.42424242424244&bg=f0f0f0&q=38&dpr=2'
-// const MAGNIFYING_GLASS_URL = 'https://image.flaticon.com/icons/svg/1076/1076744.svg'
 
 const MAGNIFYING_GLASS_URL = 'https://image.flaticon.com/icons/svg/181/181561.svg'
 class Gallery extends React.Component {
