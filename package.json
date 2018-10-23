@@ -27,8 +27,9 @@
   "homepage": "https://github.com/DeltaDrop/dd-Gallery#readme",
   "dependencies": {
     "express": "^4.16.4",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "styled-components": "^4.0.2"
   },
   "devDependencies": {
     "babel-core": "^6.23.1",
