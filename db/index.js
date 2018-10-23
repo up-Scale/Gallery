@@ -6,7 +6,7 @@ let db = mongoose.connection;
 db.on('error', () => console.log('mongoose connection error'))
 db.once('open', () => console.log('mongoose connection successful'))
 
-let ProductSchema = mongoose.Schema({
+let productSchema = mongoose.Schema({
   _id: {
     type: mongoose.Schema.Types.ObjectId,
     index: true,
@@ -17,7 +17,7 @@ let ProductSchema = mongoose.Schema({
   bannerImageId: Number
 })
 
-let ImageSchema = mongoose.Schema({
+let imageSchema = mongoose.Schema({
   _id: {
     type: mongoose.Schema.Types.ObjectId,
     index: true,
@@ -26,3 +26,8 @@ let ImageSchema = mongoose.Schema({
   }, 
   imageUrl: String
 })
+
+let Product = mongoose.model('Product', productSchema)
+let Image = mongoose.model('Image', imageSchema)
+
+// method to pull images for a specific product
