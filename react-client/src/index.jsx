@@ -33,7 +33,6 @@ class Gallery extends React.Component {
       height: 15%;
       width: 15%;
       opacity: 0;
-
       ${Container}:hover & {
         opacity: 1;
       }
