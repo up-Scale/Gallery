@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import styled from 'styled-components'
 
+
 const Container = styled.div`
 position: relative;
 `
@@ -48,7 +49,7 @@ class Gallery extends React.Component {
   }
 
   render() {
-    return(<Container>
+    return(<Container >
             <Image 
               src={TEST_IMAGE_URL} 
               onClick={this.handleImageClick}/>
