@@ -44,6 +44,7 @@ class Gallery extends React.Component {
   constructor(props) {
     super(props)
     this.handleImageClick = this.handleImageClick.bind(this);
+    this.handleOverlayClick = this.handleOverlayClick.bind(this);
     this.state = {
       overlay: false
     }
@@ -53,6 +54,12 @@ class Gallery extends React.Component {
     console.log('you clicked the image!')
     this.setState ({
       overlay: true
+    })
+  }
+
+  handleOverlayClick(event) {
+    this.setState({
+      overlay: false
     })
   }
 
@@ -71,7 +78,7 @@ class Gallery extends React.Component {
             </MagnifyingGlass>
             <Overlay 
               overlay={this.state.overlay}
-
+              onClick={this.handleOverlayClick}
             />
           </Container>)
   }
