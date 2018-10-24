@@ -12,6 +12,14 @@ left: 0;
 background-color: rgb(0,0,0);
 background-color: rgba(0,0,0, 0.9);
 `
+const CenterImage = styled.img`
+  vertical-align: middle;
+  max-height: 100%;
+  max-width: 100%;
+  position: relative;
+  top: 25%;
+
+`
 
 class GalleryOverlay extends React.Component {
   constructor(props) {
@@ -21,8 +29,9 @@ class GalleryOverlay extends React.Component {
   render() {
     return(<Overlay
             overlay={this.props.overlay}
-            onClick={this.props.handleClick}
-    />)
+            onClick={this.props.handleClick}>
+            <CenterImage src={this.props.testImage}/>
+          </Overlay>)
   }
 }
 

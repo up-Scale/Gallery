@@ -58,7 +58,8 @@ class Gallery extends React.Component {
             </Overlay> */}
             <GalleryOverlay
               overlay={this.state.overlay}
-              handleClick={this.handleOverlayClick}/>
+              handleClick={this.handleOverlayClick}
+              testImage={TEST_IMAGE_URL}/>
           </Container>)
   }
 }
