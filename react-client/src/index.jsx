@@ -43,34 +43,20 @@ const MAGNIFYING_GLASS_URL = 'https://image.flaticon.com/icons/svg/181/181561.sv
 class Gallery extends React.Component {
   constructor(props) {
     super(props)
-    this.handleImageClick = this.handleImageClick.bind(this);
-    this.handleOverlayClick = this.handleOverlayClick.bind(this);
+    // this.handleImageClick = this.handleImageClick.bind(this);
+    // this.handleOverlayClick = this.handleOverlayClick.bind(this);
     this.state = {
       overlay: false
     }
-  }
-
-  handleImageClick(event) {
-    console.log('you clicked the image!')
-    this.setState ({
-      overlay: true
-    })
-  }
-
-  handleOverlayClick(event) {
-    this.setState({
-      overlay: false
-    })
+    this.handleImageClick = () => this.setState({ overlay: true })
+    this.handleOverlayClick = () => this.setState({overlay: false})
   }
 
   render() {
-
     return(<Container >
             <Image 
               src={TEST_IMAGE_URL} 
-              onClick={
-                this.handleImageClick
-              }
+              onClick={this.handleImageClick}
               >
             </Image>
             <MagnifyingGlass 
