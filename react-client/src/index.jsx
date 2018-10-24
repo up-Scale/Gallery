@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import styled from 'styled-components'
 
-
 const Container = styled.div`
 position: relative;
 `
@@ -43,29 +42,22 @@ const MAGNIFYING_GLASS_URL = 'https://image.flaticon.com/icons/svg/181/181561.sv
 class Gallery extends React.Component {
   constructor(props) {
     super(props)
-    // this.handleImageClick = this.handleImageClick.bind(this);
-    // this.handleOverlayClick = this.handleOverlayClick.bind(this);
-    this.state = {
-      overlay: false
-    }
+    this.state = { overlay: false }
     this.handleImageClick = () => this.setState({ overlay: true })
-    this.handleOverlayClick = () => this.setState({overlay: false})
+    this.handleOverlayClick = () => this.setState({ overlay: false})
   }
 
   render() {
-    return(<Container >
+    return(<Container>
             <Image 
               src={TEST_IMAGE_URL} 
-              onClick={this.handleImageClick}
-              >
-            </Image>
+              onClick={this.handleImageClick}/>
             <MagnifyingGlass 
               src = {MAGNIFYING_GLASS_URL}>
             </MagnifyingGlass>
             <Overlay 
               overlay={this.state.overlay}
-              onClick={this.handleOverlayClick}
-            />
+              onClick={this.handleOverlayClick}/>
           </Container>)
   }
 }
