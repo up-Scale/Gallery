@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import styled from 'styled-components'
+import GalleryOverlay from './components/overlay.jsx'
 
 const Container = styled.div`
 position: relative;
@@ -51,9 +52,13 @@ class Gallery extends React.Component {
               onClick={this.handleImageClick}/>
             <MagnifyingGlass 
               src = {MAGNIFYING_GLASS_URL}/>
-            <Overlay 
+            {/* <Overlay 
               overlay={this.state.overlay}
-              onClick={this.handleOverlayClick}/>
+              onClick={this.handleOverlayClick}>
+            </Overlay> */}
+            <GalleryOverlay
+              overlay={this.state.overlay}
+              handleClick={this.handleOverlayClick}/>
           </Container>)
   }
 }
