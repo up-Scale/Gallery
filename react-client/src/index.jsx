@@ -26,10 +26,17 @@ ${Container}:hover & {
 const TEST_IMAGE_URL = 'https://massdrop-s3.imgix.net/product-images/massdrop-x-sennheiser-hd-58x-jubilee-headphones/FP/t9QmCD4rQEmdqhiXUZPN_AI7B6379%20copy.jpg?auto=format&fm=jpg&fit=crop&w=800&h=242.42424242424244&bg=f0f0f0&q=38&dpr=2'
 
 const MAGNIFYING_GLASS_URL = 'https://image.flaticon.com/icons/svg/181/181561.svg'
+
+const CAROUSEL_IMG_URL = 'https://massdrop-s3.imgix.net/product-images/massdrop-x-sennheiser-hd-58x-jubilee-headphones/AI7B8523_copy_small_20171204125606.jpg?auto=format&fm=jpg&fit=crop&w=473&bg=f0f0f0&dpr=2'
+
 class Gallery extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { overlay: false }
+    this.state = { 
+      overlay: false,
+      mainImg: TEST_IMAGE_URL,
+      carouselImgs: [CAROUSEL_IMG_URL, TEST_IMAGE_URL, CAROUSEL_IMG_URL]
+     }
     this.handleImageClick = () => this.setState({ overlay: true })
     this.handleOverlayClick = () => this.setState({ overlay: false})
   }
@@ -44,7 +51,8 @@ class Gallery extends React.Component {
             <GalleryOverlay
               overlay={this.state.overlay}
               handleClick={this.handleOverlayClick}
-              testImage={TEST_IMAGE_URL}/>
+              testImage={this.state.mainImg}
+              carouselImgs={this.state.carouselImgs}/>
           </Container>)
   }
 }
