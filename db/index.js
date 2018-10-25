@@ -17,20 +17,23 @@ let productSchema = mongoose.Schema({
 }, {strict: true})
 
 let Product = mongoose.model('Product', productSchema)
-// let Image = mongoose.model('Image', imageSchema)
 
-// method to pull images for a specific product
 const createProductRecord = (json, cb) => {
   let product = new Product({ 
     productName: json.productName,
     bannerImageUrl: json.bannerImageUrl,
     productImageUrls: json.productImageUrls
   })
-  product.save(function (err, fluffy) {
-    if (err) cb(err, null);
-    // console.log(fluffy);
-    cb(null, fluffy)
-  });
+  // try {
+    product.save(function (err, fluffy) {
+      console.log(err)
+      if (err) cb(err, null);
+      // console.log(fluffy);
+      cb(null, fluffy)
+    });
+  // } catch (e) {
+  //   cb(err, null);
+  // }
 }
 
 const getProductRecord = () => {
