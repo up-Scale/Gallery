@@ -7,41 +7,29 @@ db.on('error', () => console.log('mongoose connection error'))
 db.once('open', () => console.log('mongoose connection successful'))
 
 let productSchema = mongoose.Schema({
-  _id: {
-    type: mongoose.Schema.Types.ObjectId,
-    index: true,
-    required: true,
-    auto: true,
-  }, 
-  productName: String,
+  productName: {        
+    type: String, 
+    unique: true,
+    index: true
+  },
   bannerImageUrl: String,
   productImageUrls: [String]
-})
-
-// let imageSchema = mongoose.Schema({
-//   _id: {
-//     type: mongoose.Schema.Types.ObjectId,
-//     index: true,
-//     required: true,
-//     auto: true,
-//   }, 
-//   imageUrl: String
-// })
+}, {strict: true})
 
 let Product = mongoose.model('Product', productSchema)
 // let Image = mongoose.model('Image', imageSchema)
 
 // method to pull images for a specific product
-const createProductRecord = (json) => {
+const createProductRecord = (json, cb) => {
   let product = new Product({ 
     productName: json.productName,
     bannerImageUrl: json.bannerImageUrl,
     productImageUrls: json.productImageUrls
   })
   product.save(function (err, fluffy) {
-    if (err) return console.error(err);
-    console.log('product saved');
-    console.log(fluffy);
+    if (err) cb(err, null);
+    // console.log(fluffy);
+    cb(null, fluffy)
   });
 }
 

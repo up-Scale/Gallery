@@ -24,7 +24,10 @@ app.get('/productImages', (req, res) => {
 
 app.post('/productImages', (req, res) => {
   console.log(req.body);
-  // db.createProductRecord();
+  db.createProductRecord(req.body, (err, record) => {
+    if (err) res.status(500).send(err)
+    res.send(record)
+  });
 })
 
 app.listen(3000, () => {
