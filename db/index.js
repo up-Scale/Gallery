@@ -30,8 +30,11 @@ const createProductRecord = (json, cb) => {
   });
 }
 
-const getProductRecord = () => {
-
+const getProductRecord = (name) => {
+  console.log('hi ' + name)
+  Product.findOne({productName: name}).exec((err, data) => (
+    console.log(data)
+  ));
 }
 
 exports.createProductRecord = createProductRecord;
