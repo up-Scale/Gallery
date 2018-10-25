@@ -24,9 +24,9 @@ const createProductRecord = (json, cb) => {
     bannerImageUrl: json.bannerImageUrl,
     productImageUrls: json.productImageUrls
   })
-  product.save(function (err, fluffy) {
+  product.save(function (err, product) {
     if (err) cb(err, null);
-    cb(null, fluffy)
+    cb(null, product)
   });
 }
 
