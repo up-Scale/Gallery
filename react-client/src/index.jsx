@@ -41,8 +41,9 @@ class Gallery extends React.Component {
     // make request for product in url
     let url = new URL(window.location.href)
     console.log(url.pathname.split('/')[1])
+    console.log(url.pathname)
     let productName = 'test1'
-    if (url.pathname) productName = url.pathname.split('/')[1]
+    if (url.pathname !== '/') productName = url.pathname.split('/')[1]
 
     axios.get('/productImages/' + productName)
     .then(res => {
