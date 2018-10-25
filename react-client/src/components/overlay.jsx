@@ -20,10 +20,10 @@ const CenterImage = styled.img`
 
 `
 const CarouselImage = styled.img`
-display: table;
-position: relative;
-margin: auto;
-width: 120px
+  display: table;
+  position: relative;
+  margin: auto;
+  width: 120px
 `
 
 const CarouselImageWrapper = styled.div`
@@ -35,10 +35,6 @@ const CarouselImageWrapper = styled.div`
 class GalleryOverlay extends React.Component {
   constructor(props) {
     super(props)
-  }
-  
-  componentDidMount(){
-    console.log('HERE')
   }
 
   render() {
