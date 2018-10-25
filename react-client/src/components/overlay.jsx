@@ -40,7 +40,7 @@ class GalleryOverlay extends React.Component {
       <Overlay
         overlay={this.props.overlay}
         onClick={this.props.handleClick}>
-        <CenterImage src={this.props.testImage}/>  
+        <CenterImage src={this.props.bannerImg}/>  
         <CarouselImageWrapper>
           <CarouselImage src={this.props.carouselImgs[0]}/>
         </CarouselImageWrapper>
