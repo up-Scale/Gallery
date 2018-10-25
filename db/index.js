@@ -14,20 +14,40 @@ let productSchema = mongoose.Schema({
     auto: true,
   }, 
   productName: String,
-  bannerImageId: Number
+  bannerImageUrl: String,
+  productImageUrls: [String]
 })
 
-let imageSchema = mongoose.Schema({
-  _id: {
-    type: mongoose.Schema.Types.ObjectId,
-    index: true,
-    required: true,
-    auto: true,
-  }, 
-  imageUrl: String
-})
+// let imageSchema = mongoose.Schema({
+//   _id: {
+//     type: mongoose.Schema.Types.ObjectId,
+//     index: true,
+//     required: true,
+//     auto: true,
+//   }, 
+//   imageUrl: String
+// })
 
 let Product = mongoose.model('Product', productSchema)
-let Image = mongoose.model('Image', imageSchema)
+// let Image = mongoose.model('Image', imageSchema)
 
 // method to pull images for a specific product
+const createProductRecord = (json) => {
+  let product = new Product({ 
+    productName: json.productName,
+    bannerImageUrl: json.bannerImageUrl,
+    productImageUrls: json.productImageUrls
+  })
+  product.save(function (err, fluffy) {
+    if (err) return console.error(err);
+    console.log('product saved');
+    console.log(fluffy);
+  });
+}
+
+const getProductRecord = () => {
+
+}
+
+exports.createProductRecord = createProductRecord;
+exports.getProductRecord = getProductRecord;

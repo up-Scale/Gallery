@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/DeltaDrop/dd-Gallery#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "mongoose": "^5.3.6",
     "react": "^16.5.2",
