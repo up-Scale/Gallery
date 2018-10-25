@@ -30,11 +30,14 @@ const createProductRecord = (json, cb) => {
   });
 }
 
-const getProductRecord = (name) => {
-  console.log('hi ' + name)
-  Product.findOne({productName: name}).exec((err, data) => (
-    console.log(data)
-  ));
+const getProductRecord = (name, cb) => {
+  // console.log('hi ' + name)
+  Product.findOne({productName: name}).exec((err, data) => {
+    // console.log(data)
+    if(err) cb(err, null)
+    let payload = {productName: data.productName, bannerImageUrl: data.bannerImageUrl, productImageUrls: data.productImageUrls}
+    cb(null, payload)
+  });
 }
 
 exports.createProductRecord = createProductRecord;
