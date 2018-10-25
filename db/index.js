@@ -6,7 +6,7 @@ let db = mongoose.connection;
 db.on('error', () => console.log('mongoose connection error'))
 db.once('open', () => console.log('mongoose connection successful'))
 
-let productSchema = mongoose.Schema({
+const productSchema = mongoose.Schema({
   productName: {        
     type: String, 
     unique: true,
@@ -16,10 +16,10 @@ let productSchema = mongoose.Schema({
   productImageUrls: String
 }, {strict: true})
 
-let Product = mongoose.model('Product', productSchema)
+const Product = mongoose.model('Product', productSchema)
 
 const createProductRecord = (json, cb) => {
-  let product = new Product({ 
+  const product = new Product({ 
     productName: json.productName,
     bannerImageUrl: json.bannerImageUrl,
     productImageUrls: json.productImageUrls
@@ -33,7 +33,7 @@ const createProductRecord = (json, cb) => {
 const getProductRecord = (name, cb) => {
   Product.findOne({productName: name}).exec((err, data) => {
     if(err) cb(err, null)
-    let payload = {bannerImageUrl: data.bannerImageUrl, images: data.productImageUrls}
+    const payload = {bannerImageUrl: data.bannerImageUrl, images: data.productImageUrls}
     cb(null, payload)
   });
 }
