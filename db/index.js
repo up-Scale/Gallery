@@ -33,7 +33,7 @@ const createProductRecord = (json, cb) => {
 const getProductRecord = (name, cb) => {
   Product.findOne({productName: name}).exec((err, data) => {
     if(err) cb(err, null)
-    let payload = {productName: data.productName, bannerImageUrl: data.bannerImageUrl, productImageUrls: data.productImageUrls}
+    let payload = {bannerImageUrl: data.bannerImageUrl, images: data.productImageUrls}
     cb(null, payload)
   });
 }

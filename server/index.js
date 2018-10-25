@@ -13,7 +13,7 @@ const BANNER_IMG = 'https://massdrop-s3.imgix.net/product-images/massdrop-x-senn
 const CAROUSEL_IMG_URL = 'https://massdrop-s3.imgix.net/product-images/massdrop-x-sennheiser-hd-58x-jubilee-headphones/FP/UbUHmV3QPiZTK3nHpAHJ_361A2108.jpg?auto=format&fm=jpg&fit=crop&w=473&bg=f0f0f0&dpr=2'
 
 app.get('/*', (req, res) => {
-  
+
 })
 
 app.get('/productImages', (req, res) => {
@@ -25,11 +25,15 @@ app.get('/productImages', (req, res) => {
 })
 
 app.get('/productImages/:productName', (req,res) => {
-  let productName = req.url.split('/')[2]
-  db.getProductRecord(productName, (err, data) => {
-    if(err) res.status(500).send(err)
-    else res.send(data)
-  })
+  try {
+    let productName = req.url.split('/')[2]
+    db.getProductRecord(productName, (err, data) => {
+      if(err) res.status(500).send(err)
+      else res.send(data)
+    })
+  } catch(err) {
+    res.status(500).send(err);
+  }
 })
 
 // use to generate test data. product name must be unique
