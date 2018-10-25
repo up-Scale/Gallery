@@ -16,6 +16,8 @@ const CenterImage = styled.img`
   vertical-align: middle;
   max-width: 100%;
   position: relative;
+  display:block;
+  margin:auto;
   top: 25%;
 `
 const CarouselImage = styled.img`
@@ -31,16 +33,13 @@ const CarouselImageWrapper = styled.div`
 `
 
 class GalleryOverlay extends React.Component {
-  constructor(props) {
-    super(props)
-  }
 
   render() {
     return(
       <Overlay
         overlay={this.props.overlay}
         onClick={this.props.handleClick}>
-        <CenterImage src={this.props.testImage}/>  
+        <CenterImage src={this.props.bannerImg}/>  
         <CarouselImageWrapper>
           <CarouselImage src={this.props.carouselImgs[0]}/>
         </CarouselImageWrapper>

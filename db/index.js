@@ -3,31 +3,43 @@ let mongoose = require('mongoose');
 mongoose.connect(process.env.DB_PROVIDER || 'mongodb://127.0.0.1:27017/deltaDrop')
 
 let db = mongoose.connection;
+
 db.on('error', () => console.log('mongoose connection error'))
 db.once('open', () => console.log('mongoose connection successful'))
 
-let productSchema = mongoose.Schema({
-  _id: {
-    type: mongoose.Schema.Types.ObjectId,
-    index: true,
-    required: true,
-    auto: true,
-  }, 
-  productName: String,
-  bannerImageId: Number
-})
+const productSchema = mongoose.Schema({
+  productName: {        
+    type: String, 
+    unique: true,
+    index: true
+    },
+  bannerImageUrl: String,
+  productImageUrls: String
+  }, {strict: true})
 
-let imageSchema = mongoose.Schema({
-  _id: {
-    type: mongoose.Schema.Types.ObjectId,
-    index: true,
-    required: true,
-    auto: true,
-  }, 
-  imageUrl: String
-})
+const Product = mongoose.model('Product', productSchema)
 
-let Product = mongoose.model('Product', productSchema)
-let Image = mongoose.model('Image', imageSchema)
+const createProductRecord = (json, cb) => {
+  const product = new Product({ 
+    productName: json.productName,
+    bannerImageUrl: json.bannerImageUrl,
+    productImageUrls: json.productImageUrls
+  }).save(function (err, product) {
+    if (err) cb(err, null);
+    cb(null, product)
+  });
+}
 
-// method to pull images for a specific product
+const getProductRecord = (name, cb) => {
+  Product.findOne({productName: name}).exec((err, data) => {
+    if(err) cb(err, null)
+    const payload = {
+      bannerImageUrl: data.bannerImageUrl, 
+      images: data.productImageUrls
+    }
+    cb(null, payload)
+  });
+}
+
+exports.createProductRecord = createProductRecord;
+exports.getProductRecord = getProductRecord;

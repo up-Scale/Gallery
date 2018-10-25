@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import styled from 'styled-components'
+import styled from 'styled-components';
+import axios from 'axios';
 import GalleryOverlay from './components/overlay.jsx'
 
 const Container = styled.div`
@@ -23,35 +24,48 @@ const MagnifyingGlass = styled.img`
     opacity: 1;
   }
 `
-const TEST_IMAGE_URL = 'https://massdrop-s3.imgix.net/product-images/massdrop-x-sennheiser-hd-58x-jubilee-headphones/FP/t9QmCD4rQEmdqhiXUZPN_AI7B6379%20copy.jpg?auto=format&fm=jpg&fit=crop&w=800&h=242.42424242424244&bg=f0f0f0&q=38&dpr=2'
-
 const MAGNIFYING_GLASS_URL = 'https://image.flaticon.com/icons/svg/181/181561.svg'
-
-const CAROUSEL_IMG_URL = 'https://massdrop-s3.imgix.net/product-images/massdrop-x-sennheiser-hd-58x-jubilee-headphones/FP/UbUHmV3QPiZTK3nHpAHJ_361A2108.jpg?auto=format&fm=jpg&fit=crop&w=473&bg=f0f0f0&dpr=2'
-
 class Gallery extends React.Component {
   constructor(props) {
     super(props)
     this.state = { 
       overlay: false,
-      mainImg: TEST_IMAGE_URL,
-      carouselImgs: [CAROUSEL_IMG_URL, TEST_IMAGE_URL, CAROUSEL_IMG_URL]
+      bannerImg: '',
+      carouselImgs: []
      }
     this.handleImageClick = () => this.setState({ overlay: true })
     this.handleOverlayClick = () => this.setState({ overlay: false})
   }
 
+  componentDidMount() {
+    // make request for product in url
+    let url = new URL(window.location.href)
+    console.log(url.pathname.split('/')[1])
+    console.log(url.pathname)
+    let productName = 'test1'
+    if (url.pathname !== '/') productName = url.pathname.split('/')[1]
+
+    axios.get('/productImages/' + productName)
+    .then(res => {
+      console.log(res.data)
+      this.setState({
+        bannerImg: res.data.bannerImageUrl,
+        carouselImgs: [res.data.images]
+      })
+    })
+  }
+
   render() {
     return(<Container >
             <Image 
-              src={TEST_IMAGE_URL} 
+              src={this.state.bannerImg} 
               onClick={this.handleImageClick}/>
             <MagnifyingGlass 
               src = {MAGNIFYING_GLASS_URL}/>
             <GalleryOverlay
               overlay={this.state.overlay}
               handleClick={this.handleOverlayClick}
-              testImage={this.state.mainImg}
+              bannerImg={this.state.bannerImg}
               carouselImgs={this.state.carouselImgs}/>
           </Container>)
   }
