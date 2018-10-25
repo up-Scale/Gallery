@@ -23,8 +23,7 @@ const createProductRecord = (json, cb) => {
     productName: json.productName,
     bannerImageUrl: json.bannerImageUrl,
     productImageUrls: json.productImageUrls
-  })
-  product.save(function (err, product) {
+  }).save(function (err, product) {
     if (err) cb(err, null);
     cb(null, product)
   });
