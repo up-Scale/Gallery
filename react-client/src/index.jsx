@@ -28,8 +28,6 @@ const TEST_IMAGE_URL = 'https://massdrop-s3.imgix.net/product-images/massdrop-x-
 
 const MAGNIFYING_GLASS_URL = 'https://image.flaticon.com/icons/svg/181/181561.svg'
 
-const CAROUSEL_IMG_URL = 'https://massdrop-s3.imgix.net/product-images/massdrop-x-sennheiser-hd-58x-jubilee-headphones/FP/UbUHmV3QPiZTK3nHpAHJ_361A2108.jpg?auto=format&fm=jpg&fit=crop&w=473&bg=f0f0f0&dpr=2'
-
 class Gallery extends React.Component {
   constructor(props) {
     super(props)
@@ -58,7 +56,7 @@ class Gallery extends React.Component {
   render() {
     return(<Container >
             <Image 
-              src={TEST_IMAGE_URL} 
+              src={this.state.bannerImg} 
               onClick={this.handleImageClick}/>
             <MagnifyingGlass 
               src = {MAGNIFYING_GLASS_URL}/>
