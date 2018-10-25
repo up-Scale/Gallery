@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import styled from 'styled-components'
+import styled from 'styled-components';
+import axios from 'axios';
 import GalleryOverlay from './components/overlay.jsx'
 
 const Container = styled.div`
@@ -34,15 +35,23 @@ class Gallery extends React.Component {
     super(props)
     this.state = { 
       overlay: false,
-      mainImg: TEST_IMAGE_URL,
+      bannerImg: TEST_IMAGE_URL,
       carouselImgs: [CAROUSEL_IMG_URL, TEST_IMAGE_URL, CAROUSEL_IMG_URL]
      }
     this.handleImageClick = () => this.setState({ overlay: true })
     this.handleOverlayClick = () => this.setState({ overlay: false})
   }
-  
+
   componentWillMount() {
     // make request for product in url
+    axios.get('/productImages')
+    .then(res => {
+      console.log(res.data)
+      this.setState({
+        bannerImg: res.data.bannerImageUrl,
+        carouselImgs: res.data.images
+      })
+    })
   }
 
   render() {
@@ -55,7 +64,7 @@ class Gallery extends React.Component {
             <GalleryOverlay
               overlay={this.state.overlay}
               handleClick={this.handleOverlayClick}
-              testImage={this.state.mainImg}
+              testImage={this.state.bannerImg}
               carouselImgs={this.state.carouselImgs}/>
           </Container>)
   }
