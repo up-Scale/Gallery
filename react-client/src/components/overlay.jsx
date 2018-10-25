@@ -35,6 +35,11 @@ class GalleryOverlay extends React.Component {
     super(props)
   }
 
+  componentDidMount() {
+    console.log('OVERLAY PROPS')
+    console.log(this.props)
+  }
+
   render() {
     return(
       <Overlay

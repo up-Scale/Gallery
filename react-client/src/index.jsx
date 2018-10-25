@@ -37,7 +37,7 @@ class Gallery extends React.Component {
     this.handleOverlayClick = () => this.setState({ overlay: false})
   }
 
-  componentWillMount() {
+  componentDidMount() {
     // make request for product in url
     let url = new URL(window.location.href)
     console.log(url)
@@ -48,7 +48,7 @@ class Gallery extends React.Component {
       console.log(res.data)
       this.setState({
         bannerImg: res.data.bannerImageUrl,
-        carouselImgs: res.data.images
+        carouselImgs: [res.data.images]
       })
     })
   }
