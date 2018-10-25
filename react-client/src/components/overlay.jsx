@@ -17,7 +17,6 @@ const CenterImage = styled.img`
   max-width: 100%;
   position: relative;
   top: 25%;
-
 `
 const CarouselImage = styled.img`
   display: table;
@@ -25,7 +24,6 @@ const CarouselImage = styled.img`
   margin: auto;
   width: 120px
 `
-
 const CarouselImageWrapper = styled.div`
   position: fixed;
   bottom: 3%;
@@ -38,15 +36,15 @@ class GalleryOverlay extends React.Component {
   }
 
   render() {
-    return(<Overlay
-            overlay={this.props.overlay}
-            onClick={this.props.handleClick}>
-            <CenterImage src={this.props.testImage}/>
-            
-            <CarouselImageWrapper>
-              <CarouselImage src={this.props.carouselImgs[0]}/>
-            </CarouselImageWrapper>
-          </Overlay>)
+    return(
+      <Overlay
+        overlay={this.props.overlay}
+        onClick={this.props.handleClick}>
+        <CenterImage src={this.props.testImage}/>  
+        <CarouselImageWrapper>
+          <CarouselImage src={this.props.carouselImgs[0]}/>
+        </CarouselImageWrapper>
+      </Overlay>)
   } 
 }
 
