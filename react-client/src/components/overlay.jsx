@@ -33,14 +33,6 @@ const CarouselImageWrapper = styled.div`
 `
 
 class GalleryOverlay extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-
-  componentDidMount() {
-    console.log('OVERLAY PROPS')
-    console.log(this.props)
-  }
 
   render() {
     return(

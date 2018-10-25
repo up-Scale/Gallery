@@ -51,5 +51,5 @@ app.post('/productImages', (req, res) => {
 })
 
 app.listen(3000, () => {
-  console.log('listening')
+  console.log('listening on 3000')
 })
