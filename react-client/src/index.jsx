@@ -4,30 +4,30 @@ import styled from 'styled-components'
 import GalleryOverlay from './components/overlay.jsx'
 
 const Container = styled.div`
-position: relative;
+  position: relative;
 `
 const Image = styled.img`
-width: 100%;
-display: block;
+  width: 100%;
+  display: block;
 `
 const MagnifyingGlass = styled.img`
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-transform: translate(-50%, -50%);
-height: 15%;
-width: 15%;
-opacity: 0;
-${Container}:hover & {
-  opacity: 1;
-}
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  height: 15%;
+  width: 15%;
+  opacity: 0;
+  ${Container}:hover & {
+    opacity: 1;
+  }
 `
 const TEST_IMAGE_URL = 'https://massdrop-s3.imgix.net/product-images/massdrop-x-sennheiser-hd-58x-jubilee-headphones/FP/t9QmCD4rQEmdqhiXUZPN_AI7B6379%20copy.jpg?auto=format&fm=jpg&fit=crop&w=800&h=242.42424242424244&bg=f0f0f0&q=38&dpr=2'
 
 const MAGNIFYING_GLASS_URL = 'https://image.flaticon.com/icons/svg/181/181561.svg'
 
-const CAROUSEL_IMG_URL = 'https://massdrop-s3.imgix.net/product-images/massdrop-x-sennheiser-hd-58x-jubilee-headphones/AI7B8523_copy_small_20171204125606.jpg?auto=format&fm=jpg&fit=crop&w=473&bg=f0f0f0&dpr=2'
+const CAROUSEL_IMG_URL = 'https://massdrop-s3.imgix.net/product-images/massdrop-x-sennheiser-hd-58x-jubilee-headphones/FP/UbUHmV3QPiZTK3nHpAHJ_361A2108.jpg?auto=format&fm=jpg&fit=crop&w=473&bg=f0f0f0&dpr=2'
 
 class Gallery extends React.Component {
   constructor(props) {
