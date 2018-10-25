@@ -23,7 +23,6 @@ app.get('/productImages', (req, res) => {
 })
 
 app.post('/productImages', (req, res) => {
-  console.log(req.body);
   try {
     db.createProductRecord(req.body, (err, record) => {
       if (err) res.status(500).send(err)

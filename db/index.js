@@ -24,16 +24,10 @@ const createProductRecord = (json, cb) => {
     bannerImageUrl: json.bannerImageUrl,
     productImageUrls: json.productImageUrls
   })
-  // try {
-    product.save(function (err, fluffy) {
-      console.log(err)
-      if (err) cb(err, null);
-      // console.log(fluffy);
-      cb(null, fluffy)
-    });
-  // } catch (e) {
-  //   cb(err, null);
-  // }
+  product.save(function (err, fluffy) {
+    if (err) cb(err, null);
+    cb(null, fluffy)
+  });
 }
 
 const getProductRecord = () => {
