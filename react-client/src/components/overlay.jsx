@@ -16,6 +16,8 @@ const CenterImage = styled.img`
   vertical-align: middle;
   max-width: 100%;
   position: relative;
+  display:block;
+  margin:auto;
   top: 25%;
 `
 const CarouselImage = styled.img`
