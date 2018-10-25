@@ -35,8 +35,8 @@ class Gallery extends React.Component {
     super(props)
     this.state = { 
       overlay: false,
-      bannerImg: TEST_IMAGE_URL,
-      carouselImgs: [CAROUSEL_IMG_URL, TEST_IMAGE_URL, CAROUSEL_IMG_URL]
+      bannerImg: '',
+      carouselImgs: []
      }
     this.handleImageClick = () => this.setState({ overlay: true })
     this.handleOverlayClick = () => this.setState({ overlay: false})
@@ -44,6 +44,7 @@ class Gallery extends React.Component {
 
   componentWillMount() {
     // make request for product in url
+    console.log(window.location.href)
     axios.get('/productImages')
     .then(res => {
       console.log(res.data)

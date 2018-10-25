@@ -14,8 +14,6 @@ const CAROUSEL_IMG_URL = 'https://massdrop-s3.imgix.net/product-images/massdrop-
 
 app.get('/productImages', (req, res) => {
 
-  // parse product name or id from request, use to query db
-
   const dummyImages = { 
     bannerImageUrl: BANNER_IMG,
     images: [CAROUSEL_IMG_URL, BANNER_IMG, BANNER_IMG]
