@@ -40,6 +40,10 @@ class Gallery extends React.Component {
     this.handleImageClick = () => this.setState({ overlay: true })
     this.handleOverlayClick = () => this.setState({ overlay: false})
   }
+  
+  componentWillMount() {
+    // make request for product in url
+  }
 
   render() {
     return(<Container >
