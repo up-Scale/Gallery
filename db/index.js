@@ -13,7 +13,7 @@ let productSchema = mongoose.Schema({
     index: true
   },
   bannerImageUrl: String,
-  productImageUrls: [String]
+  productImageUrls: String
 }, {strict: true})
 
 let Product = mongoose.model('Product', productSchema)
