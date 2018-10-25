@@ -19,11 +19,10 @@ app.get('/productImages', (req, res) => {
     bannerImageUrl: BANNER_IMG,
     images: [BANNER_IMG, BANNER_IMG, BANNER_IMG]
   }
-
   res.send(JSON.stringify(dummyImages))
 })
 
-app.post('productImages', (req, res) => {
+app.post('/productImages', (req, res) => {
   console.log(req.body);
   // db.createProductRecord();
 })
