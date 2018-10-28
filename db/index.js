@@ -15,7 +15,7 @@ const productSchema = mongoose.Schema({
     },
   bannerImageUrl: String,
   productImageUrls: String
-  }, {strict: true})
+}, {strict: true})
 
 const Product = mongoose.model('Product', productSchema)
 
