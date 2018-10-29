@@ -51,7 +51,7 @@ class GalleryContainer extends React.Component {
                 bannerImg={this.state.bannerImg}
                 carouselImgs={this.state.carouselImgs}/>
             </Container> */}
-            <Gallery src={this.state.bannerImg}></Gallery>
+            <Gallery src={this.state.bannerImg}/>
           </div>)
   }
 }
