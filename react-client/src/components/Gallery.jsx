@@ -42,7 +42,7 @@ class Gallery extends React.Component {
 
   render() {
     return (
-      <Container >
+      <Container>
         <Image 
           src={this.props.src} 
           onClick={this.handleImageClick}/>

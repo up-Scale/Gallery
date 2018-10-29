@@ -18,21 +18,36 @@ const CenterImage = styled.img`
   position: relative;
   display:block;
   margin:auto;
-  top: 25%;
+  top: 20%;
 `
 const CarouselImage = styled.img`
-  display: table;
+display: inline-block
   position: relative;
   margin: auto;
-  width: 120px
+  width: 120px;
+  float: left;
+  padding: 5px;
 `
 const CarouselImageWrapper = styled.div`
   position: fixed;
   bottom: 3%;
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 `
 
 class GalleryOverlay extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+    //   centerImageSrc = props.bannerImg
+    }
+  }
+
   render() {
     console.log(this.props)
     return(
@@ -45,7 +60,6 @@ class GalleryOverlay extends React.Component {
           {this.props.carouselImgs.map((item, index, array) => {
             return (<CarouselImage src={item}/>)
           })}
-
 
         </CarouselImageWrapper>
       </Overlay>)
