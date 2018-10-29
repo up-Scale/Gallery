@@ -18,6 +18,7 @@ class GalleryContainer extends React.Component {
     this.handleOverlayClick = () => this.setState({ overlay: false})
   }
 
+  // this is a specialized call for ProductGallery. TODO continue refactor
   componentDidMount() {
     // make request for product in url
     let url = new URL(window.location.href)
@@ -38,18 +39,6 @@ class GalleryContainer extends React.Component {
 
   render() {
     return(<div>
-            {/* <Container >
-              <Image 
-                src={this.state.bannerImg} 
-                onClick={this.handleImageClick}/>
-              <MagnifyingGlass 
-                src = {MAGNIFYING_GLASS_URL}/>
-              <GalleryOverlay
-                overlay={this.state.overlay}
-                handleClick={this.handleOverlayClick}
-                bannerImg={this.state.bannerImg}
-                carouselImgs={this.state.carouselImgs}/>
-            </Container> */}
             <Gallery src={this.state.bannerImg}/>
           </div>)
   }
