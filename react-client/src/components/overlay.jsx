@@ -33,17 +33,20 @@ const CarouselImageWrapper = styled.div`
 `
 
 class GalleryOverlay extends React.Component {
-
   render() {
+    console.log(this.props)
     return(
       <Overlay
         overlay={this.props.overlay}
         onClick={this.props.handleClick}>
         <CenterImage src={this.props.bannerImg}/>  
         <CarouselImageWrapper>
-          <CarouselImage src={
-            // this.props.carouselImgs[0] || 
-            this.props.bannerImg}/>
+
+          {this.props.carouselImgs.map((item, index, array) => {
+            return (<CarouselImage src={item}/>)
+          })}
+
+
         </CarouselImageWrapper>
       </Overlay>)
   } 
