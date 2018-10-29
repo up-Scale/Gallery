@@ -14,6 +14,7 @@ const Container = styled.div`
 `
 const Image = styled.img`
   width: 100%;
+  max-height: 60%;
   display: block;
 `
 const MagnifyingGlass = styled.img`
