@@ -1,6 +1,10 @@
-// Gallery is general component which will behave like an image tag, accepting a src url
 
-// It also has to recieve or fetch a list of photos to show in the gallery
+import React from 'react';
+
+
+// Gallery is general component which will behave like an image tag, accepting a src url and a list of carousel image src urls
+
+// It does not interface the database if it doesn't need to
 
 const MAGNIFYING_GLASS_URL = 'https://image.flaticon.com/icons/svg/181/181561.svg'
 
@@ -25,22 +29,38 @@ const MagnifyingGlass = styled.img`
   }
 `
 
+class Gallery extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { 
+      overlay: false,
+    }
+    this.handleImageClick = () => this.setState({ overlay: true })
+    this.handleOverlayClick = () => this.setState({ overlay: false})
+  }
+
+  render() {
+    return (
+        <Container >
+          <Image 
+            src={this.props.src} 
+            onClick={this.handleImageClick}/>
+          <MagnifyingGlass 
+            src = {MAGNIFYING_GLASS_URL}/>
+          <GalleryOverlay
+            overlay={this.state.overlay}
+            handleClick={this.handleOverlayClick}
+            bannerImg={this.props.src}
+            // should do something if imgs is not passed in
+            carouselImgs={this.props.imgs || this.props.src}/>
+        </Container>
+    )
+  }
+}
+
+
 const Gallery = ({src, imgs}) => {
   return (
-    <div>
-      {/* <img src={src}/> */}
-
-    <Container >
-      <Image 
-        src={src} 
-        onClick={this.handleImageClick}/>
-      <MagnifyingGlass 
-        src = {MAGNIFYING_GLASS_URL}/>
-      <GalleryOverlay
-        overlay={this.state.overlay}
-        handleClick={this.handleOverlayClick}
-        bannerImg={src}
-        carouselImgs={imgs}/>
-    </Container></div>
+   
   ) 
 }
