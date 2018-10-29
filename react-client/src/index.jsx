@@ -2,30 +2,12 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import styled from 'styled-components';
 import axios from 'axios';
-import GalleryOverlay from './components/overlay.jsx'
+import GalleryOverlay from './components/overlay.jsx';
+import Gallery from './components/Gallery.jsx';
 
-const Container = styled.div`
-  position: relative;
-`
-const Image = styled.img`
-  width: 100%;
-  display: block;
-`
-const MagnifyingGlass = styled.img`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  height: 15%;
-  width: 15%;
-  opacity: 0;
-  ${Container}:hover & {
-    opacity: 1;
-  }
-`
+
 const MAGNIFYING_GLASS_URL = 'https://image.flaticon.com/icons/svg/181/181561.svg'
-class Gallery extends React.Component {
+class GalleryContainer extends React.Component {
   constructor(props) {
     super(props)
     this.state = { 
@@ -56,19 +38,22 @@ class Gallery extends React.Component {
   }
 
   render() {
-    return(<Container >
-            <Image 
-              src={this.state.bannerImg} 
-              onClick={this.handleImageClick}/>
-            <MagnifyingGlass 
-              src = {MAGNIFYING_GLASS_URL}/>
-            <GalleryOverlay
-              overlay={this.state.overlay}
-              handleClick={this.handleOverlayClick}
-              bannerImg={this.state.bannerImg}
-              carouselImgs={this.state.carouselImgs}/>
-          </Container>)
+    return(<div>
+            {/* <Container >
+              <Image 
+                src={this.state.bannerImg} 
+                onClick={this.handleImageClick}/>
+              <MagnifyingGlass 
+                src = {MAGNIFYING_GLASS_URL}/>
+              <GalleryOverlay
+                overlay={this.state.overlay}
+                handleClick={this.handleOverlayClick}
+                bannerImg={this.state.bannerImg}
+                carouselImgs={this.state.carouselImgs}/>
+            </Container> */}
+            <Gallery src={this.state.bannerImg}></Gallery>
+          </div>)
   }
 }
 
-ReactDom.render(<Gallery/>, document.getElementById('gallery'))
+ReactDom.render(<GalleryContainer/>, document.getElementById('gallery'))
