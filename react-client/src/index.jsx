@@ -1,74 +1,26 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import styled from 'styled-components';
-import axios from 'axios';
-import GalleryOverlay from './components/overlay.jsx'
+import Gallery from './components/Gallery.jsx';
+import ProductGallery from './components/ProductGallery.jsx';
 
-const Container = styled.div`
-  position: relative;
-`
-const Image = styled.img`
-  width: 100%;
-  display: block;
-`
-const MagnifyingGlass = styled.img`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  height: 15%;
-  width: 15%;
-  opacity: 0;
-  ${Container}:hover & {
-    opacity: 1;
-  }
-`
-const MAGNIFYING_GLASS_URL = 'https://image.flaticon.com/icons/svg/181/181561.svg'
-class Gallery extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = { 
-      overlay: false,
-      bannerImg: '',
-      carouselImgs: []
-     }
-    this.handleImageClick = () => this.setState({ overlay: true })
-    this.handleOverlayClick = () => this.setState({ overlay: false})
-  }
+const SAMPLE_IMG_0 = 'https://www.cats.org.uk/uploads/branches/1/42847%20Cats%20Weekly%20Lottery%20Web%20Banner.jpg'
+const SAMPLE_IMG_1 = 'https://images.pexels.com/photos/45170/kittens-cat-cat-puppy-rush-45170.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
+const SAMPLE_IMG_2 = 'https://images.pexels.com/photos/65006/pexels-photo-65006.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
+const SAMPLE_IMG_3 = 'https://images.pexels.com/photos/9413/animal-cute-kitten-cat.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
+const SAMPLE_IMG_4 = 'https://images.pexels.com/photos/171227/pexels-photo-171227.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
+const SAMPLE_IMG_5 = 'https://images.pexels.com/photos/74177/cat-74177.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
 
-  componentDidMount() {
-    // make request for product in url
-    let url = new URL(window.location.href)
-    console.log(url.pathname.split('/')[1])
-    console.log(url.pathname)
-    let productName = 'test1'
-    if (url.pathname !== '/') productName = url.pathname.split('/')[1]
-
-    axios.get('/productImages/' + productName)
-    .then(res => {
-      console.log(res.data)
-      this.setState({
-        bannerImg: res.data.bannerImageUrl,
-        carouselImgs: [res.data.images]
-      })
-    })
-  }
-
-  render() {
-    return(<Container >
-            <Image 
-              src={this.state.bannerImg} 
-              onClick={this.handleImageClick}/>
-            <MagnifyingGlass 
-              src = {MAGNIFYING_GLASS_URL}/>
-            <GalleryOverlay
-              overlay={this.state.overlay}
-              handleClick={this.handleOverlayClick}
-              bannerImg={this.state.bannerImg}
-              carouselImgs={this.state.carouselImgs}/>
-          </Container>)
-  }
+const GalleryContainer = () => {
+  return(<div>
+    <ProductGallery/>
+    <Gallery src={SAMPLE_IMG_1}/>
+    {/* <Gallery src={SAMPLE_IMG_2}/>
+    <Gallery src={SAMPLE_IMG_3}/>
+    <Gallery src={SAMPLE_IMG_4}/>
+    <Gallery src={SAMPLE_IMG_5}/> */}
+  </div>)
 }
 
-ReactDom.render(<Gallery/>, document.getElementById('gallery'))
+
+ReactDom.render(<GalleryContainer/>, document.getElementById('gallery'))
