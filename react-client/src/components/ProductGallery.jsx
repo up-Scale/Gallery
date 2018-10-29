@@ -11,6 +11,10 @@ import axios from 'axios';
 class ProductGallery extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { 
+      bannerImg: null,
+      carouselImgs: null
+    }
   }
 
   // this is a specialized call for ProductGallery. TODO continue refactor
@@ -34,7 +38,9 @@ class ProductGallery extends React.Component {
 
   render() {
     return (
-      <Gallery/>
+      <Gallery src={this.state.bannerImg}/>
     );
   }
 }
+
+export default ProductGallery
