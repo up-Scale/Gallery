@@ -34,8 +34,8 @@ const CarouselImage = styled.img`
   padding: 5px;
 `
 const CarouselImageWrapper = styled.div`
--webkit-flex: 1;
-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
   position: fixed;
   bottom: 3%;
   width: 100%;
@@ -44,6 +44,51 @@ flex: 1;
   justify-content: center;
   align-items: center;
   text-align: center;
+`
+const ButtonLeft = styled.button`
+  z-index: 3;
+
+  float: left;
+  position: fixed;
+  top: 50%;
+  left: 5%;
+  opacity: 50;
+
+`
+
+
+  // ${LeftHalf}:hover & {
+  //   opacity: 1;
+  // }
+
+const ButtonRight = styled.button`
+  z-index: 3;
+
+  float: right;
+  position: fixed;
+  top: 50%;
+  left: 95%
+`
+
+const ButtonExit = styled.button`
+  z-index: 3;
+
+  float: right;
+  position: fixed;
+  top: 0%
+  left:98%
+`
+
+const LeftHalf = styled.div`
+position: absolute;
+left: 0px;
+width: 50%
+`
+
+const RightHalf = styled.div`
+position: absolute;
+right: 0px;
+width: 50%;
 `
 
 class GalleryOverlay extends React.Component {
@@ -59,11 +104,21 @@ class GalleryOverlay extends React.Component {
     return(
       <Overlay
         overlay={this.props.overlay}
-        onClick={this.props.handleClick}>
-        <CenterImage src={this.props.carouselImgs[0]}/>  
+        >
+
+        <LeftHalf>
+          <ButtonLeft/>
+        </LeftHalf>
+
+        <RightHalf>
+          <ButtonRight/>
+        </RightHalf>
+
+        <ButtonExit onClick={this.props.handleClick}/>
+        <CenterImage src={this.props.imgs[0]}/>  
         <CarouselImageWrapper>
 
-          {this.props.carouselImgs.map((item, index, array) => {
+          {this.props.imgs.map((item, index, array) => {
             return (<CarouselImage src={item}/>)
           })}
 

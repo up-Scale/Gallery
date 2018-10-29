@@ -21,5 +21,4 @@ const GalleryContainer = () => {
   </div>)
 }
 
-
 ReactDom.render(<GalleryContainer/>, document.getElementById('gallery'))

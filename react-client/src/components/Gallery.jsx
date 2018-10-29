@@ -30,7 +30,6 @@ const MagnifyingGlass = styled.img`
     opacity: 1;
   }
 `
-
 class Gallery extends React.Component {
   constructor(props) {
     super(props);
@@ -52,9 +51,8 @@ class Gallery extends React.Component {
         <GalleryOverlay
           overlay={this.state.overlay}
           handleClick={this.handleOverlayClick}
-          bannerImg={this.props.src}
-          // should do something if imgs is not passed in
-          carouselImgs={[this.props.src, ...this.props.imgs] || [this.props.src]}/>
+          src={this.props.src}
+          imgs={[this.props.src, ...this.props.imgs] || [this.props.src] || []}/>
       </Container>
     )
   }
