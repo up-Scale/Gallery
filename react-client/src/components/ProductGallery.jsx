@@ -15,7 +15,6 @@ class ProductGallery extends React.Component {
     }
   }
 
-  // this is a specialized call for ProductGallery. TODO continue refactor
   componentDidMount() {
     let url = new URL(window.location.href)
     let productName = 'test1'
@@ -23,7 +22,6 @@ class ProductGallery extends React.Component {
 
     axios.get('/productImages/' + productName)
     .then(res => {
-      console.log(res.data)
       this.setState({
         bannerImg: res.data.bannerImageUrl,
         carouselImgs: [res.data.images]
@@ -33,7 +31,7 @@ class ProductGallery extends React.Component {
 
   render() {
     return (
-      <Gallery src={this.state.bannerImg}/>
+      <Gallery src={this.state.bannerImg} imgs={this.state.carouselImgs}/>
     );
   }
 }
