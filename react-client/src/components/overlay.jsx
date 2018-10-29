@@ -51,12 +51,11 @@ const ButtonLeft = styled.input`
   position: fixed;
   top: 40%;
   left: 3%;
-  opacity: 50;
+  opacity: 1;
+  ${CarouselImageWrapper}:hover & {
+    opacity: 0;
+    }
 `
-
-  // ${LeftHalf}:hover & {
-  //   opacity: 1;
-  // }
 
 const ButtonRight = styled.input`
   z-index: 3;
@@ -100,8 +99,24 @@ class GalleryOverlay extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-    //   centerImageSrc = props.bannerImg
+      centerImageIndex: 0,
+      numImgs: props.imgs.length
     }
+    this.handleRightClick = this.handleRightClick.bind(this);
+    this.handleLeftClick = this.handleLeftClick.bind(this)
+  }
+
+  handleRightClick(e) {
+    let i = this.state.centerImageIndex;
+    if (i < this.state.numImgs - 1) i++;
+    // i++
+    this.setState({ centerImageIndex: i })
+  }
+
+  handleLeftClick(e) {
+    let i = this.state.centerImageIndex;
+    if (i > 0) i--;
+    this.setState({ centerImageIndex: i })
   }
 
   render() {
@@ -111,16 +126,16 @@ class GalleryOverlay extends React.Component {
         >
 
         {/* <LeftHalf> */}
-          <ButtonLeft type="image" src="https://cdn0.iconfinder.com/data/icons/basic-ui-elements-round/700/01_arrow_left-128.png"/>
+          <ButtonLeft onClick={this.handleLeftClick} type="image" src="https://cdn0.iconfinder.com/data/icons/basic-ui-elements-round/700/01_arrow_left-128.png"/>
           
         {/* </LeftHalf> */}
 
         {/* <RightHalf> */}
-          <ButtonRight type="image" src="https://cdn0.iconfinder.com/data/icons/basic-ui-elements-round/700/01_arrow_left-128.png"/>
+          <ButtonRight onClick={this.handleRightClick} type="image" src="https://cdn0.iconfinder.com/data/icons/basic-ui-elements-round/700/01_arrow_left-128.png"/>
         {/* </RightHalf> */}
 
         <ButtonExit onClick={this.props.handleClick} type="image" src="https://cdn3.iconfinder.com/data/icons/iconic-1/32/x_alt-512.png"/>
-        <CenterImage src={this.props.imgs[0]}/>  
+        <CenterImage src={this.props.imgs[this.state.centerImageIndex]}/>  
         <CarouselImageWrapper>
 
           {this.props.imgs.map((item, index, array) => {
