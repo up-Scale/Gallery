@@ -17,10 +17,7 @@ class ProductGallery extends React.Component {
 
   // this is a specialized call for ProductGallery. TODO continue refactor
   componentDidMount() {
-    // make request for product in url
     let url = new URL(window.location.href)
-    console.log(url.pathname.split('/')[1])
-    console.log(url.pathname)
     let productName = 'test1'
     if (url.pathname !== '/') productName = url.pathname.split('/')[1]
 
