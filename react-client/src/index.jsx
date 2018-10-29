@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import styled from 'styled-components';
-import axios from 'axios';
-import GalleryOverlay from './components/Overlay.jsx';
 import Gallery from './components/Gallery.jsx';
 
+const SAMPLE_IMG = 'https://www.cats.org.uk/uploads/branches/1/42847%20Cats%20Weekly%20Lottery%20Web%20Banner.jpg'
 
 class GalleryContainer extends React.Component {
   constructor(props) {
@@ -18,28 +17,9 @@ class GalleryContainer extends React.Component {
     this.handleOverlayClick = () => this.setState({ overlay: false})
   }
 
-  // this is a specialized call for ProductGallery. TODO continue refactor
-  componentDidMount() {
-    // make request for product in url
-    let url = new URL(window.location.href)
-    console.log(url.pathname.split('/')[1])
-    console.log(url.pathname)
-    let productName = 'test1'
-    if (url.pathname !== '/') productName = url.pathname.split('/')[1]
-
-    axios.get('/productImages/' + productName)
-    .then(res => {
-      console.log(res.data)
-      this.setState({
-        bannerImg: res.data.bannerImageUrl,
-        carouselImgs: [res.data.images]
-      })
-    })
-  }
-
   render() {
     return(<div>
-            <Gallery src={this.state.bannerImg}/>
+            <Gallery src={SAMPLE_IMG}/>
           </div>)
   }
 }

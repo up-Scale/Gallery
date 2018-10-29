@@ -3,10 +3,9 @@ import React from 'react';
 import GalleryOverlay from './Overlay.jsx'
 import styled from 'styled-components';
 
+// Gallery is general component which will behave like an image tag, accepting a src url and possibly a list of carousel image src urls
 
-// Gallery is general component which will behave like an image tag, accepting a src url and a list of carousel image src urls
-
-// It does not interface the database if it doesn't need to
+// It does not interface the database
 
 const MAGNIFYING_GLASS_URL = 'https://image.flaticon.com/icons/svg/181/181561.svg'
 
@@ -43,19 +42,19 @@ class Gallery extends React.Component {
 
   render() {
     return (
-        <Container >
-          <Image 
-            src={this.props.src} 
-            onClick={this.handleImageClick}/>
-          <MagnifyingGlass 
-            src = {MAGNIFYING_GLASS_URL}/>
-          <GalleryOverlay
-            overlay={this.state.overlay}
-            handleClick={this.handleOverlayClick}
-            bannerImg={this.props.src}
-            // should do something if imgs is not passed in
-            carouselImgs={this.props.imgs || this.props.src}/>
-        </Container>
+      <Container >
+        <Image 
+          src={this.props.src} 
+          onClick={this.handleImageClick}/>
+        <MagnifyingGlass 
+          src = {MAGNIFYING_GLASS_URL}/>
+        <GalleryOverlay
+          overlay={this.state.overlay}
+          handleClick={this.handleOverlayClick}
+          bannerImg={this.props.src}
+          // should do something if imgs is not passed in
+          carouselImgs={this.props.imgs || this.props.src}/>
+      </Container>
     )
   }
 }
