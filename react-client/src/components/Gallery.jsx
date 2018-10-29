@@ -53,7 +53,7 @@ class Gallery extends React.Component {
           handleClick={this.handleOverlayClick}
           bannerImg={this.props.src}
           // should do something if imgs is not passed in
-          carouselImgs={this.props.imgs || this.props.src}/>
+          carouselImgs={this.props.imgs || [this.props.src, this.props.src, this.props.src]}/>
       </Container>
     )
   }

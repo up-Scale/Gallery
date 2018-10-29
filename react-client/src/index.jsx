@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import styled from 'styled-components';
 import Gallery from './components/Gallery.jsx';
 import ProductGallery from './components/ProductGallery.jsx';
 
@@ -13,8 +12,8 @@ const SAMPLE_IMG_5 = 'https://images.pexels.com/photos/74177/cat-74177.jpeg?auto
 
 const GalleryContainer = () => {
   return(<div>
-    <ProductGallery/>
-    <Gallery src={SAMPLE_IMG_1}/>
+    {/* <ProductGallery/> */}
+    <Gallery src={SAMPLE_IMG_1} />
     {/* <Gallery src={SAMPLE_IMG_2}/>
     <Gallery src={SAMPLE_IMG_3}/>
     <Gallery src={SAMPLE_IMG_4}/>
