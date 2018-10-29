@@ -1,6 +1,6 @@
 
 import React from 'react';
-import GalleryOverlay from './overlay.jsx'
+import GalleryOverlay from './Overlay.jsx'
 import styled from 'styled-components';
 
 

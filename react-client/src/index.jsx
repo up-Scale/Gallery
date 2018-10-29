@@ -2,11 +2,10 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import styled from 'styled-components';
 import axios from 'axios';
-import GalleryOverlay from './components/overlay.jsx';
+import GalleryOverlay from './components/Overlay.jsx';
 import Gallery from './components/Gallery.jsx';
 
 
-const MAGNIFYING_GLASS_URL = 'https://image.flaticon.com/icons/svg/181/181561.svg'
 class GalleryContainer extends React.Component {
   constructor(props) {
     super(props)
