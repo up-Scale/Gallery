@@ -15,10 +15,10 @@ const GalleryContainer = () => {
   return(<div>
     <ProductGallery/>
     <Gallery src={SAMPLE_IMG_1}/>
-    <Gallery src={SAMPLE_IMG_2}/>
+    {/* <Gallery src={SAMPLE_IMG_2}/>
     <Gallery src={SAMPLE_IMG_3}/>
     <Gallery src={SAMPLE_IMG_4}/>
-    <Gallery src={SAMPLE_IMG_5}/>
+    <Gallery src={SAMPLE_IMG_5}/> */}
   </div>)
 }
 
