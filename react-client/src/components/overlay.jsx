@@ -13,7 +13,6 @@ const Overlay = styled.div`
   left: 0;
   background-color: rgb(0,0,0);
   background-color: rgba(0,0,0, 0.9);
-
 `
 const CenterImage = styled.img`
   vertical-align: middle;
@@ -45,51 +44,56 @@ const CarouselImageWrapper = styled.div`
   align-items: center;
   text-align: center;
 `
-const ButtonLeft = styled.button`
+const ButtonLeft = styled.input`
   z-index: 3;
-
+  height: 10%
   float: left;
   position: fixed;
-  top: 50%;
-  left: 5%;
+  top: 40%;
+  left: 3%;
   opacity: 50;
-
 `
-
 
   // ${LeftHalf}:hover & {
   //   opacity: 1;
   // }
 
-const ButtonRight = styled.button`
+const ButtonRight = styled.input`
   z-index: 3;
-
+  height: 10%
   float: right;
   position: fixed;
-  top: 50%;
-  left: 95%
+  top: 40%;
+  left: 92%
+  transform: rotate(180deg);
 `
 
-const ButtonExit = styled.button`
+const ButtonExit = styled.input`
   z-index: 3;
-
+  height: 10%;
   float: right;
   position: fixed;
-  top: 0%
-  left:98%
+  top: 5%
+  left:90%
 `
 
-const LeftHalf = styled.div`
-position: absolute;
-left: 0px;
-width: 50%
-`
+// const LeftHalf = styled.div`
+// position: absolute;
+// left: 0px;
+// width: 50%
+// `
 
-const RightHalf = styled.div`
-position: absolute;
-right: 0px;
-width: 50%;
-`
+// const RightHalf = styled.div`
+// position: absolute;
+// right: 0px;
+// width: 50%;
+// `
+// const Container = styled.div`
+// position: relative;
+// top: 50%;
+// left: 50%;
+// padding: 1rem;
+// `
 
 class GalleryOverlay extends React.Component {
 
@@ -106,15 +110,16 @@ class GalleryOverlay extends React.Component {
         overlay={this.props.overlay}
         >
 
-        <LeftHalf>
-          <ButtonLeft/>
-        </LeftHalf>
+        {/* <LeftHalf> */}
+          <ButtonLeft type="image" src="https://cdn0.iconfinder.com/data/icons/basic-ui-elements-round/700/01_arrow_left-128.png"/>
+          
+        {/* </LeftHalf> */}
 
-        <RightHalf>
-          <ButtonRight/>
-        </RightHalf>
+        {/* <RightHalf> */}
+          <ButtonRight type="image" src="https://cdn0.iconfinder.com/data/icons/basic-ui-elements-round/700/01_arrow_left-128.png"/>
+        {/* </RightHalf> */}
 
-        <ButtonExit onClick={this.props.handleClick}/>
+        <ButtonExit onClick={this.props.handleClick} type="image" src="https://cdn3.iconfinder.com/data/icons/iconic-1/32/x_alt-512.png"/>
         <CenterImage src={this.props.imgs[0]}/>  
         <CarouselImageWrapper>
 
