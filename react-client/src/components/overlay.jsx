@@ -16,8 +16,8 @@ const Overlay = styled.div`
 `
 const CenterImage = styled.img`
   vertical-align: middle;
-  max-width: 100%;
-  max-height: 60%;
+  max-width: 80%;
+  max-height: 40%;
   position: relative;
   display:block;
   margin:auto;
@@ -43,6 +43,7 @@ const CarouselImageWrapper = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
+  clear:both;
 `
 const ButtonLeft = styled.input`
   z-index: 3;
@@ -74,6 +75,13 @@ const ButtonExit = styled.input`
   position: fixed;
   top: 5%
   left:90%
+`
+
+const CenterImageWrapper = styled.div`
+  overflow: visible;
+  position: absolute;
+  max-height: 20%;
+  justify-content: center;
 `
 
 // const LeftHalf = styled.div`
@@ -109,7 +117,6 @@ class GalleryOverlay extends React.Component {
   handleRightClick(e) {
     let i = this.state.centerImageIndex;
     if (i < this.state.numImgs - 1) i++;
-    // i++
     this.setState({ centerImageIndex: i })
   }
 
@@ -121,27 +128,25 @@ class GalleryOverlay extends React.Component {
 
   render() {
     return(
-      <Overlay
-        overlay={this.props.overlay}
-        >
+      <Overlay overlay={this.props.overlay}>
 
         {/* <LeftHalf> */}
-          <ButtonLeft onClick={this.handleLeftClick} type="image" src="https://cdn0.iconfinder.com/data/icons/basic-ui-elements-round/700/01_arrow_left-128.png"/>
-          
+        <ButtonLeft onClick={this.handleLeftClick} type="image" src="https://cdn0.iconfinder.com/data/icons/basic-ui-elements-round/700/01_arrow_left-128.png"/>
         {/* </LeftHalf> */}
 
         {/* <RightHalf> */}
-          <ButtonRight onClick={this.handleRightClick} type="image" src="https://cdn0.iconfinder.com/data/icons/basic-ui-elements-round/700/01_arrow_left-128.png"/>
+        <ButtonRight onClick={this.handleRightClick} type="image" src="https://cdn0.iconfinder.com/data/icons/basic-ui-elements-round/700/01_arrow_left-128.png"/>
         {/* </RightHalf> */}
 
         <ButtonExit onClick={this.props.handleClick} type="image" src="https://cdn3.iconfinder.com/data/icons/iconic-1/32/x_alt-512.png"/>
-        <CenterImage src={this.props.imgs[this.state.centerImageIndex]}/>  
-        <CarouselImageWrapper>
+        <CenterImageWrapper>
+          <CenterImage src={this.props.imgs[this.state.centerImageIndex]}/>  
+        </CenterImageWrapper>
 
+        <CarouselImageWrapper>
           {this.props.imgs.map((item, index, array) => {
             return (<CarouselImage src={item}/>)
           })}
-
         </CarouselImageWrapper>
       </Overlay>)
   } 
