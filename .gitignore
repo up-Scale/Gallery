@@ -1,5 +1,5 @@
 node_modules
 
-/react-client/dist/bundle.js
+/react-client/dist/gallery.bundle.js
 
 package-lock.json
