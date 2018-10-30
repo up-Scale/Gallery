@@ -5,7 +5,9 @@
   "main": "server/index.js",
   "scripts": {
     "react-dev": "webpack -d --watch",
+    "react": "webpack -d",
     "server-dev": "nodemon server/index.js",
+    "server": "node server/index.js",
     "seed": "node seed.js",
     "test": "jest"
   },
