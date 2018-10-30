@@ -14,6 +14,7 @@ const Container = styled.div`
 `
 const Image = styled.img`
   width: 100%;
+  max-height: 60%;
   display: block;
 `
 const MagnifyingGlass = styled.img`
@@ -29,7 +30,6 @@ const MagnifyingGlass = styled.img`
     opacity: 1;
   }
 `
-
 class Gallery extends React.Component {
   constructor(props) {
     super(props);
@@ -42,7 +42,7 @@ class Gallery extends React.Component {
 
   render() {
     return (
-      <Container >
+      <Container>
         <Image 
           src={this.props.src} 
           onClick={this.handleImageClick}/>
@@ -51,9 +51,8 @@ class Gallery extends React.Component {
         <GalleryOverlay
           overlay={this.state.overlay}
           handleClick={this.handleOverlayClick}
-          bannerImg={this.props.src}
-          // should do something if imgs is not passed in
-          carouselImgs={this.props.imgs || this.props.src}/>
+          src={this.props.src}
+          imgs={[this.props.src, ...this.props.imgs] || [this.props.src] || []}/>
       </Container>
     )
   }
