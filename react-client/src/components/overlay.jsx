@@ -92,6 +92,10 @@ const CenterImageWrapper = styled.div`
   justify-content: center;
 `
 
+const ContentContainer = styled.div`
+
+`
+
 // const LeftHalf = styled.div`
 // position: absolute;
 // left: 0px;
@@ -142,27 +146,29 @@ class GalleryOverlay extends React.Component {
             <ButtonExit onClick={this.props.handleClick} type="image" src="https://cdn3.iconfinder.com/data/icons/iconic-1/32/x_alt-512.png"/>
           </CarouselHeader>
 
-          {/* <LeftHalf> */}
-          <ButtonLeft onClick={this.handleLeftClick} type="image" src="https://cdn0.iconfinder.com/data/icons/basic-ui-elements-round/700/01_arrow_left-128.png"/>
-          {/* </LeftHalf> */}
+          <ContentContainer>
 
-          {/* <RightHalf> */}
-          <ButtonRight onClick={this.handleRightClick} type="image" src="https://cdn0.iconfinder.com/data/icons/basic-ui-elements-round/700/01_arrow_left-128.png"/>
-          {/* </RightHalf> */}
+            <CenterImageWrapper>
+              <CenterImage src={this.props.imgs[this.state.centerImageIndex]}/>  
+            </CenterImageWrapper>
 
-          <CenterImageWrapper>
-            <CenterImage src={this.props.imgs[this.state.centerImageIndex]}/>  
-          </CenterImageWrapper>
+            {/* <LeftHalf> */}
+            <ButtonLeft onClick={this.handleLeftClick} type="image" src="https://cdn0.iconfinder.com/data/icons/basic-ui-elements-round/700/01_arrow_left-128.png"/>
+            {/* </LeftHalf> */}
 
-          <CarouselImageWrapper>
-            {this.props.imgs.map((item, index, array) => {
-              return (<CarouselImage src={item}/>)
-            })}
-          </CarouselImageWrapper>
+            {/* <RightHalf> */}
+            <ButtonRight onClick={this.handleRightClick} type="image" src="https://cdn0.iconfinder.com/data/icons/basic-ui-elements-round/700/01_arrow_left-128.png"/>
+            {/* </RightHalf> */}
 
+            <CarouselImageWrapper>
+              {this.props.imgs.map((item, index, array) => {
+                return (<CarouselImage src={item}/>)
+              })}
+            </CarouselImageWrapper>
+
+
+          </ContentContainer>
         </CarouselContainer>
-
-
       </Overlay>)
   } 
 }
