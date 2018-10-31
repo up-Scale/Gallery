@@ -12,45 +12,36 @@ const Overlay = styled.div`
   background-color: rgb(0,0,0);
   background-color: rgba(0,0,0, 0.9);
 `
-
 const CenterImage = styled.img`
   max-width: 80%;
   position: relative;
   display:block;
   margin:auto;
 `
-
-
 const BannerSpacer = styled.div`
   margin-top: 10px;
 `
-
-
 const BannerContainer = styled.div`
   position: relative;
   max-height: 20%;
   justify-content: center;
   max-height: 65vh;
 `
-
 const CenterImageWrapper = styled.span`
   width: 100%;
   position: relative;
   display: inline-block;
   box-sizing: inherit;
 `
-
 const ContentContainer = styled.div`
   position: relative;
   z-index: 1;
   box-sizing: inherit;
 `
-
 const CarouselSection = styled.section`
   padding-left: 24px;
   padding-right: 24px;  
 `
-
 const CarouselWrapper = styled.div`
   display: block;
   box-sizing: inherit;
@@ -75,21 +66,17 @@ const CarouselImageWrapper = styled.div`
   text-align: center;
   clear:both;
 `
-
 const CarouselContainer = styled.div`
   position: relative;
   height: 100%;
   width: 100%;
   max-width: 1300px;
 `
-
 const CarouselHeader = styled.div`
   padding-top: 10px;
   height: 40px;
   margin: 0 10px 10px;
 `
-
-
 const ButtonLeft = styled.input`
   z-index: 3;
   height: 10%
@@ -102,7 +89,6 @@ const ButtonLeft = styled.input`
     opacity: 0;
     }
 `
-
 const ButtonRight = styled.input`
   z-index: 3;
   height: 10%
@@ -112,7 +98,6 @@ const ButtonRight = styled.input`
   left: 92%
   transform: rotate(180deg);
 `
-
 const ButtonExit = styled.input`
   z-index: 3;
   height: 10%;
@@ -132,15 +117,8 @@ const ButtonExit = styled.input`
 // right: 0px;
 // width: 50%;
 // `
-// const Container = styled.div`
-// position: relative;
-// top: 50%;
-// left: 50%;
-// padding: 1rem;
-// `
 
 class GalleryOverlay extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -170,9 +148,7 @@ class GalleryOverlay extends React.Component {
           <CarouselHeader>
             <ButtonExit onClick={this.props.handleClick} type="image" src="https://cdn3.iconfinder.com/data/icons/iconic-1/32/x_alt-512.png"/>
           </CarouselHeader>
-
           <ContentContainer>
-
             <BannerContainer> 
               <CenterImageWrapper>
                 <CenterImage src={this.props.imgs[this.state.centerImageIndex]}/>  
@@ -189,17 +165,12 @@ class GalleryOverlay extends React.Component {
             {/* </RightHalf> */}
 
             <CarouselSection>
-
               <CarouselImageWrapper>
                 {this.props.imgs.map((item, index, array) => {
                   return (<CarouselImage src={item}/>)
                 })}
               </CarouselImageWrapper>
-
             </CarouselSection>
-
-
-
           </ContentContainer>
         </CarouselContainer>
       </Overlay>)
