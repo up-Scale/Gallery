@@ -13,26 +13,47 @@ const Overlay = styled.div`
   background-color: rgba(0,0,0, 0.9);
 `
 
-const CarouselContainer = styled.div`
-  position: relative;
-  height: 100%;
-  width: 100%;
-  max-width: 1300px;
-
-
-`
-
-const CarouselHeader = styled.div`
-  padding-top: 10px;
-  height: 40px;
-  margin: 0 10px 10px;
-`
-
 const CenterImage = styled.img`
   max-width: 80%;
   position: relative;
   display:block;
   margin:auto;
+`
+
+
+const BannerSpacer = styled.div`
+  margin-top: 10px;
+`
+
+
+const BannerContainer = styled.div`
+  position: relative;
+  max-height: 20%;
+  justify-content: center;
+  max-height: 65vh;
+`
+
+const CenterImageWrapper = styled.span`
+  width: 100%;
+  position: relative;
+  display: inline-block;
+  box-sizing: inherit;
+`
+
+const ContentContainer = styled.div`
+  position: relative;
+  z-index: 1;
+  box-sizing: inherit;
+`
+
+const CarouselSection = styled.section`
+  padding-left: 24px;
+  padding-right: 24px;  
+`
+
+const CarouselWrapper = styled.div`
+  display: block;
+  box-sizing: inherit;
 `
 const CarouselImage = styled.img`
   display: inline-block
@@ -55,9 +76,19 @@ const CarouselImageWrapper = styled.div`
   clear:both;
 `
 
-const BannerSpacer = styled.div`
-  margin-top: 10px;
+const CarouselContainer = styled.div`
+  position: relative;
+  height: 100%;
+  width: 100%;
+  max-width: 1300px;
 `
+
+const CarouselHeader = styled.div`
+  padding-top: 10px;
+  height: 40px;
+  margin: 0 10px 10px;
+`
+
 
 const ButtonLeft = styled.input`
   z-index: 3;
@@ -90,40 +121,6 @@ const ButtonExit = styled.input`
   top: 5%
   left:90%
 `
-
-const BannerContainer = styled.div`
-  position: relative;
-  max-height: 20%;
-  justify-content: center;
-  max-height: 65vh;
-`
-
-const CenterImageWrapper = styled.span`
-  width: 100%;
-  position: relative;
-  display: inline-block;
-  box-sizing: inherit;
-`
-
-const ContentContainer = styled.div`
-  position: relative;
-  z-index: 1;
-  box-sizing: inherit;
-`
-
-const CarouselSection = styled.section`
-  padding-left: 24px;
-  padding-right: 24px;  
-
-`
-
-const CarouselWrapper = styled.div`
-  display: block;
-  box-sizing: inherit;
-  z-index: 2;
-  background-color: rgba(0,0,0, 0.9);
-`
-
 // const LeftHalf = styled.div`
 // position: absolute;
 // left: 0px;
