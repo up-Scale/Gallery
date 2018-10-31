@@ -18,6 +18,9 @@ const CarouselContainer = styled.div`
   height: 100%;
   width: 100%;
   max-width: 1300px;
+  z-index: 2;
+  background-color: rgba(0,0,0, 0.9);
+
 `
 
 const CarouselHeader = styled.div`
@@ -42,7 +45,6 @@ const CarouselImage = styled.img`
 `
 const CarouselImageWrapper = styled.div`
   -webkit-flex: 1;
-  flex: 1;
   position: fixed;
   bottom: 3%;
   width: 100%;
