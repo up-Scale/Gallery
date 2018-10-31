@@ -18,8 +18,7 @@ const CarouselContainer = styled.div`
   height: 100%;
   width: 100%;
   max-width: 1300px;
-  z-index: 2;
-  background-color: rgba(0,0,0, 0.9);
+
 
 `
 
@@ -114,12 +113,15 @@ const ContentContainer = styled.div`
 
 const CarouselSection = styled.section`
   padding-left: 24px;
-  padding-right: 24px;
+  padding-right: 24px;  
+
 `
 
 const CarouselWrapper = styled.div`
   display: block;
   box-sizing: inherit;
+  z-index: 2;
+  background-color: rgba(0,0,0, 0.9);
 `
 
 // const LeftHalf = styled.div`
