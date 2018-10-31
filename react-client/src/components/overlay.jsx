@@ -53,6 +53,11 @@ const CarouselImageWrapper = styled.div`
   text-align: center;
   clear:both;
 `
+
+const BannerSpacer = styled.div`
+  margin-top: 10px;
+`
+
 const ButtonLeft = styled.input`
   z-index: 3;
   height: 10%
@@ -85,15 +90,34 @@ const ButtonExit = styled.input`
   left:90%
 `
 
-const CenterImageWrapper = styled.div`
-  overflow: visible;
-  position: absolute;
+const BannerContainer = styled.div`
+  position: relative;
   max-height: 20%;
   justify-content: center;
+  max-height: 65vh;
+`
+
+const CenterImageWrapper = styled.span`
+  width: 100%;
+  position: relative;
+  display: inline-block;
+  box-sizing: inherit;
 `
 
 const ContentContainer = styled.div`
+  position: relative;
+  z-index: 1;
+  box-sizing: inherit;
+`
 
+const CarouselSection = styled.section`
+  padding-left: 24px;
+  padding-right: 24px;
+`
+
+const CarouselWrapper = styled.div`
+  display: block;
+  box-sizing: inherit;
 `
 
 // const LeftHalf = styled.div`
@@ -148,9 +172,12 @@ class GalleryOverlay extends React.Component {
 
           <ContentContainer>
 
-            <CenterImageWrapper>
-              <CenterImage src={this.props.imgs[this.state.centerImageIndex]}/>  
-            </CenterImageWrapper>
+            <BannerContainer> 
+              <CenterImageWrapper>
+                <CenterImage src={this.props.imgs[this.state.centerImageIndex]}/>  
+              </CenterImageWrapper>
+              <BannerSpacer/>
+            </BannerContainer>
 
             {/* <LeftHalf> */}
             <ButtonLeft onClick={this.handleLeftClick} type="image" src="https://cdn0.iconfinder.com/data/icons/basic-ui-elements-round/700/01_arrow_left-128.png"/>
@@ -160,11 +187,16 @@ class GalleryOverlay extends React.Component {
             <ButtonRight onClick={this.handleRightClick} type="image" src="https://cdn0.iconfinder.com/data/icons/basic-ui-elements-round/700/01_arrow_left-128.png"/>
             {/* </RightHalf> */}
 
-            <CarouselImageWrapper>
-              {this.props.imgs.map((item, index, array) => {
-                return (<CarouselImage src={item}/>)
-              })}
-            </CarouselImageWrapper>
+            <CarouselSection>
+
+              <CarouselImageWrapper>
+                {this.props.imgs.map((item, index, array) => {
+                  return (<CarouselImage src={item}/>)
+                })}
+              </CarouselImageWrapper>
+
+            </CarouselSection>
+
 
 
           </ContentContainer>
