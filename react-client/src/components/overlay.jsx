@@ -4,8 +4,6 @@ import styled from 'styled-components'
 const Overlay = styled.div`
   height: 100%;
   width: 100%;
-  display: flex;
-  display: -webkit-flex;
   display: ${props => props.overlay ? "block" : "none"};
   position: fixed;
   z-index: 1;
@@ -15,14 +13,38 @@ const Overlay = styled.div`
   background-color: rgba(0,0,0, 0.9);
 `
 const CenterImage = styled.img`
-  vertical-align: middle;
   max-width: 80%;
-  max-height: 40%;
   position: relative;
   display:block;
   margin:auto;
-  top: 20%;
-  flex: none;
+`
+const BannerSpacer = styled.div`
+  margin-top: 10px;
+`
+const BannerContainer = styled.div`
+  position: relative;
+  max-height: 20%;
+  justify-content: center;
+  max-height: 65vh;
+`
+const CenterImageWrapper = styled.span`
+  width: 100%;
+  position: relative;
+  display: inline-block;
+  box-sizing: inherit;
+`
+const ContentContainer = styled.div`
+  position: relative;
+  z-index: 1;
+  box-sizing: inherit;
+`
+const CarouselSection = styled.section`
+  padding-left: 24px;
+  padding-right: 24px;  
+`
+const CarouselWrapper = styled.div`
+  display: block;
+  box-sizing: inherit;
 `
 const CarouselImage = styled.img`
   display: inline-block
@@ -34,7 +56,6 @@ const CarouselImage = styled.img`
 `
 const CarouselImageWrapper = styled.div`
   -webkit-flex: 1;
-  flex: 1;
   position: fixed;
   bottom: 3%;
   width: 100%;
@@ -44,6 +65,17 @@ const CarouselImageWrapper = styled.div`
   align-items: center;
   text-align: center;
   clear:both;
+`
+const CarouselContainer = styled.div`
+  position: relative;
+  height: 100%;
+  width: 100%;
+  max-width: 1300px;
+`
+const CarouselHeader = styled.div`
+  padding-top: 10px;
+  height: 40px;
+  margin: 0 10px 10px;
 `
 const ButtonLeft = styled.input`
   z-index: 3;
@@ -57,7 +89,6 @@ const ButtonLeft = styled.input`
     opacity: 0;
     }
 `
-
 const ButtonRight = styled.input`
   z-index: 3;
   height: 10%
@@ -67,7 +98,6 @@ const ButtonRight = styled.input`
   left: 92%
   transform: rotate(180deg);
 `
-
 const ButtonExit = styled.input`
   z-index: 3;
   height: 10%;
@@ -76,14 +106,6 @@ const ButtonExit = styled.input`
   top: 5%
   left:90%
 `
-
-const CenterImageWrapper = styled.div`
-  overflow: visible;
-  position: absolute;
-  max-height: 20%;
-  justify-content: center;
-`
-
 // const LeftHalf = styled.div`
 // position: absolute;
 // left: 0px;
@@ -95,15 +117,8 @@ const CenterImageWrapper = styled.div`
 // right: 0px;
 // width: 50%;
 // `
-// const Container = styled.div`
-// position: relative;
-// top: 50%;
-// left: 50%;
-// padding: 1rem;
-// `
 
 class GalleryOverlay extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -129,25 +144,35 @@ class GalleryOverlay extends React.Component {
   render() {
     return(
       <Overlay overlay={this.props.overlay}>
+        <CarouselContainer>
+          <CarouselHeader>
+            <ButtonExit onClick={this.props.handleClick} type="image" src="https://cdn3.iconfinder.com/data/icons/iconic-1/32/x_alt-512.png"/>
+          </CarouselHeader>
+          <ContentContainer>
+            <BannerContainer> 
+              <CenterImageWrapper>
+                <CenterImage src={this.props.imgs[this.state.centerImageIndex]}/>  
+              </CenterImageWrapper>
+              <BannerSpacer/>
+            </BannerContainer>
 
-        {/* <LeftHalf> */}
-        <ButtonLeft onClick={this.handleLeftClick} type="image" src="https://cdn0.iconfinder.com/data/icons/basic-ui-elements-round/700/01_arrow_left-128.png"/>
-        {/* </LeftHalf> */}
+            {/* <LeftHalf> */}
+            <ButtonLeft onClick={this.handleLeftClick} type="image" src="https://cdn0.iconfinder.com/data/icons/basic-ui-elements-round/700/01_arrow_left-128.png"/>
+            {/* </LeftHalf> */}
 
-        {/* <RightHalf> */}
-        <ButtonRight onClick={this.handleRightClick} type="image" src="https://cdn0.iconfinder.com/data/icons/basic-ui-elements-round/700/01_arrow_left-128.png"/>
-        {/* </RightHalf> */}
+            {/* <RightHalf> */}
+            <ButtonRight onClick={this.handleRightClick} type="image" src="https://cdn0.iconfinder.com/data/icons/basic-ui-elements-round/700/01_arrow_left-128.png"/>
+            {/* </RightHalf> */}
 
-        <ButtonExit onClick={this.props.handleClick} type="image" src="https://cdn3.iconfinder.com/data/icons/iconic-1/32/x_alt-512.png"/>
-        <CenterImageWrapper>
-          <CenterImage src={this.props.imgs[this.state.centerImageIndex]}/>  
-        </CenterImageWrapper>
-
-        <CarouselImageWrapper>
-          {this.props.imgs.map((item, index, array) => {
-            return (<CarouselImage src={item}/>)
-          })}
-        </CarouselImageWrapper>
+            <CarouselSection>
+              <CarouselImageWrapper>
+                {this.props.imgs.map((item, index, array) => {
+                  return (<CarouselImage src={item}/>)
+                })}
+              </CarouselImageWrapper>
+            </CarouselSection>
+          </ContentContainer>
+        </CarouselContainer>
       </Overlay>)
   } 
 }
