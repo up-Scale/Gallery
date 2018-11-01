@@ -3,17 +3,26 @@ import React from 'react';
 import Gallery from './Gallery.jsx';
 import axios from 'axios';
 
+import styled from 'styled-components';
 // ProductGallery is specialized component which will provide the lead banner image for a product, to be featured on each product page
 
 // It gets all data for the db via ProductName.  It expects product.bannerImage and an array of images associated w the product
+
+const NotFound = styled.div`
+  display: ${props => props.fourOhFour ? "block" : "none"};
+`
+
 class ProductGallery extends React.Component {
   constructor(props) {
     super(props);
+
+    
     this.state = { 
       bannerImg: '',
       carouselImgs: [],
-      fourOhFour: 'none'
+      fourOhFour: false
     }
+ 
   }
 
   componentDidMount() {
@@ -27,23 +36,26 @@ class ProductGallery extends React.Component {
     .then(res => {
       this.setState({
         bannerImg: res.data.bannerImageUrl,
-        carouselImgs: res.data.images.split(',')
+        carouselImgs: res.data.images.split(','),
+        fourOhFour: false
       })
+      console.log(this.state.fourOhFour)
     })
     .catch(err => {
       if (err.message === 'Request failed with status code 404') {
         this.setState({
-          fourOhFour: 'block'
+          fourOhFour: true
         })
       }
     })
   }
 
   render() {
+
     return (
       <div>
         <Gallery src={this.state.bannerImg} imgs={this.state.carouselImgs}/>
-        <div styles={{ display: this.state.fourOhFour }}>Not Found - Please Try Another Product</div>
+        <NotFound fourOhFour={this.state.fourOhFour}>Not Found - Please Try Another Product</NotFound>
       </div>
     );
   }
