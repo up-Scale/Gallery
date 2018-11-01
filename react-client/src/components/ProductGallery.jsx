@@ -43,7 +43,6 @@ class ProductGallery extends React.Component {
   }
 
   render() {
-
     return (
       <div>
         <Gallery src={this.state.bannerImg} imgs={this.state.carouselImgs}/>

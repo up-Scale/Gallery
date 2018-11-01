@@ -87,7 +87,7 @@ const ButtonLeft = styled.input`
   opacity: 1;
   ${CarouselImageWrapper}:hover & {
     opacity: 0;
-    }
+  }
 `
 const ButtonRight = styled.input`
   z-index: 3;
