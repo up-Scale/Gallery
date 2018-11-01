@@ -36,6 +36,7 @@ class Gallery extends React.Component {
     this.state = { 
       overlay: false,
     }
+    
     this.handleImageClick = () => this.setState({ overlay: true })
     this.handleOverlayClick = () => this.setState({ overlay: false})
   }

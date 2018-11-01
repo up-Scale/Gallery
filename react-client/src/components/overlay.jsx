@@ -130,8 +130,9 @@ class GalleryOverlay extends React.Component {
   }
 
   handleRightClick(e) {
+    console.log(this.props)
     let i = this.state.centerImageIndex;
-    if (i < this.state.numImgs - 1) i++;
+    if (i < this.props.imgs.length - 1) i++;
     this.setState({ centerImageIndex: i })
   }
 
