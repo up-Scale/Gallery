@@ -25,7 +25,6 @@ app.get('/productImages/:productName', (req,res) => {
         res.status(500).send(err)
       }
       else {
-        console.log(data);
         res.send(data)
       }
     })
