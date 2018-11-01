@@ -30,7 +30,6 @@ app.get('/buy/:productName', (req, res) => {
 // })
 
 app.get('/productImages/:productName', (req,res) => {
-  try {
     let productName = req.url.split('/')[2]
     db.getProductRecord(productName, (err, data) => {
       if(err) {
@@ -39,9 +38,6 @@ app.get('/productImages/:productName', (req,res) => {
       }
       else res.send(data)
     })
-  } catch(err) {
-    res.status(500).send(err);
-  }
 })
 
 // use to generate test data. productName must be unique
