@@ -12,9 +12,12 @@ class ProductGallery extends React.Component {
     super(props);
     this.state = { 
       bannerImg: '',
-      carouselImgs: []
+      carouselImgs: [],
+      fourOhFour: 'none'
     }
   }
+
+
 
   componentDidMount() {
     let url = new URL(window.location.href)
@@ -30,12 +33,21 @@ class ProductGallery extends React.Component {
         bannerImg: res.data.bannerImageUrl,
         carouselImgs: res.data.images.split(',')
       })
+    }).catch(err => {
+      if (err.message === 'Request failed with status code 404') {
+        this.setState({
+          fourOhFour: 'block'
+        })
+      }
     })
   }
 
   render() {
     return (
-      <Gallery src={this.state.bannerImg} imgs={this.state.carouselImgs}/>
+      <div>
+        <Gallery src={this.state.bannerImg} imgs={this.state.carouselImgs}/>
+        <div styles={{ display: this.state.fourOhFour }}>404 Not Found</div>
+      </div>
     );
   }
 }

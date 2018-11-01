@@ -16,13 +16,13 @@ const CAROUSEL_IMG_URL = 'https://massdrop-s3.imgix.net/product-images/massdrop-
 app.get('/buy/:productName', (req, res) => {
   res.sendFile(path.resolve('react-client/dist/index.html'))
 })
-
+ 
 app.get('/productImages/:productName', (req,res) => {
     let productName = req.url.split('/')[2]
     db.getProductRecord(productName, (err, data) => {
       if(err) {
         if (err.message === '404') res.status(404).send(err)
-        res.status(500).send(err)
+        else res.status(500).send(err)
       }
       else {
         res.send(data)

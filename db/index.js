@@ -45,7 +45,7 @@ const getProductRecord = (name, cb) => {
       }
     });
   } catch (err) {
-    cb(err);
+    cb(err, null);
   }
 }
 
