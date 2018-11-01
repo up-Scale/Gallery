@@ -17,6 +17,10 @@ app.get('/:productName', (req, res) => {
   res.sendFile(path.resolve('react-client/dist/index.html'))
 })
 
+app.get('/buy/:productName', (req, res) => {
+  res.sendFile(path.resolve('react-client/dist/index.html'))
+})
+
 app.get('/productImages', (req, res) => {
   const dummyImages = { 
     bannerImageUrl: BANNER_IMG,
