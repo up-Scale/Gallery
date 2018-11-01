@@ -39,7 +39,6 @@ class ProductGallery extends React.Component {
         carouselImgs: res.data.images.split(','),
         fourOhFour: false
       })
-      console.log(this.state.fourOhFour)
     })
     .catch(err => {
       if (err.message === 'Request failed with status code 404') {
