@@ -31,7 +31,6 @@ const createProductRecord = (json, cb) => {
 }
 
 const getProductRecord = (name, cb) => {
-  try {
     Product.findOne({productName: name}).exec((err, data) => {
       if(err) cb(err, null)
       else if(!data) {
@@ -44,9 +43,6 @@ const getProductRecord = (name, cb) => {
         cb(null, payload)
       }
     });
-  } catch (err) {
-    cb(err, null);
-  }
 }
 
 exports.createProductRecord = createProductRecord;
