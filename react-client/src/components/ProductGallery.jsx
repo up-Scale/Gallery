@@ -25,8 +25,6 @@ class ProductGallery extends React.Component {
     
     axios.get('/productImages/' + productName)
     .then(res => {
-      // let json = JSON.parse(res.data);
-      console.log('HI')
       console.log(res.data);
       this.setState({
         bannerImg: res.data.bannerImageUrl,
