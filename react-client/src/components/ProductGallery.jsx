@@ -8,7 +8,6 @@ import axios from 'axios';
 // It gets all data for the db via ProductName.  It expects product.bannerImage and an array of images associated w the product
 class ProductGallery extends React.Component {
   constructor(props) {
-    console.log('product gallery constructor')
     super(props);
     this.state = { 
       bannerImg: '',
@@ -16,8 +15,6 @@ class ProductGallery extends React.Component {
       fourOhFour: 'none'
     }
   }
-
-
 
   componentDidMount() {
     let url = new URL(window.location.href)
@@ -28,12 +25,12 @@ class ProductGallery extends React.Component {
     
     axios.get('/productImages/' + productName)
     .then(res => {
-      console.log(res.data);
       this.setState({
         bannerImg: res.data.bannerImageUrl,
         carouselImgs: res.data.images.split(',')
       })
-    }).catch(err => {
+    })
+    .catch(err => {
       if (err.message === 'Request failed with status code 404') {
         this.setState({
           fourOhFour: 'block'
@@ -46,7 +43,7 @@ class ProductGallery extends React.Component {
     return (
       <div>
         <Gallery src={this.state.bannerImg} imgs={this.state.carouselImgs}/>
-        <div styles={{ display: this.state.fourOhFour }}>404 Not Found</div>
+        <div styles={{ display: this.state.fourOhFour }}>Not Found - Please Try Another Product</div>
       </div>
     );
   }
