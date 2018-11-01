@@ -15,16 +15,16 @@ app.get('/buy/:productName', (req, res) => {
 })
  
 app.get('/productImages/:productName', (req,res) => {
-    let productName = req.url.split('/')[2]
-    db.getProductRecord(productName, (err, data) => {
-      if(err) {
-        if (err.message === '404') res.status(404).send(err)
-        else res.status(500).send(err)
-      }
-      else {
-        res.send(data)
-      }
-    })
+  let productName = req.url.split('/')[2]
+  db.getProductRecord(productName, (err, data) => {
+    if(err) {
+      if (err.message === '404') res.status(404).send(err)
+      else res.status(500).send(err)
+    }
+    else {
+      res.send(data)
+    }
+  })
 })
 
 // use to generate test data. productName must be unique
