@@ -30,13 +30,13 @@ app.get('/productImages/:productName', (req,res) => {
 // use to generate test data. productName must be unique
 // find test data in testJson.js
 app.post('/productImages', (req, res) => {
-    db.createProductRecord(req.body, (err, record) => {
-      if (err) {
-        console.log(err)
-        res.status(500).send(err)
-      }
-      else res.send(record)
-    });
+  db.createProductRecord(req.body, (err, record) => {
+    if (err) {
+      console.log(err)
+      res.status(500).send(err)
+    }
+    else res.send(record)
+  });
 })
 
 app.listen(3000, () => {
