@@ -18,7 +18,7 @@ class ProductGallery extends React.Component {
   componentDidMount() {
     let url = new URL(window.location.href)
     let productName = 'test1'
-    if (url.pathname !== '/') productName = url.pathname.split('/')[1]
+    if (url.pathname !== '/') productName = url.pathname.split('/')[url.pathname.split('/') - 1]
 
     axios.get('/productImages/' + productName)
     .then(res => {

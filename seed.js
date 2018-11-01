@@ -22,7 +22,7 @@ db.createProductRecord(test.giveMeCats('cats') ,(err, result) => {
   if(err) { 
     console.log('ERROR there are likely duplicate entries'); 
   } else {
-    console.log('creating product test' + i);
+    console.log('creating product cats');
   }
 })
 
@@ -30,7 +30,7 @@ db.createProductRecord(test.giveMeDogs('dogs') ,(err, result) => {
   if(err) { 
     console.log('ERROR there are likely duplicate entries'); 
   } else {
-    console.log('creating product test' + i);
+    console.log('creating product dogs');
   }
 })
 
@@ -38,7 +38,7 @@ db.createProductRecord(test.giveMeFlashlight('flashlight') ,(err, result) => {
   if(err) { 
     console.log('ERROR there are likely duplicate entries'); 
   } else {
-    console.log('creating product test' + i);
+    console.log('creating product flashlight');
   }
 })
 
@@ -46,7 +46,7 @@ db.createProductRecord(test.giveMeHeadphones('headphones') ,(err, result) => {
   if(err) { 
     console.log('ERROR there are likely duplicate entries'); 
   } else {
-    console.log('creating product test' + i);
+    console.log('creating product headphones');
   }
 })
 
@@ -54,7 +54,7 @@ db.createProductRecord(test.giveMeSeki('seki-kit') ,(err, result) => {
   if(err) { 
     console.log('ERROR there are likely duplicate entries'); 
   } else {
-    console.log('creating product test' + i);
+    console.log('creating product seki-kit');
   }
 })
 
@@ -62,7 +62,7 @@ db.createProductRecord(test.giveMeKeyboard('keyboard') ,(err, result) => {
   if(err) { 
     console.log('ERROR there are likely duplicate entries'); 
   } else {
-    console.log('creating product test' + i);
+    console.log('creating product keyboard');
   }
 })
 
@@ -70,7 +70,7 @@ db.createProductRecord(test.giveMeWatches('watch') ,(err, result) => {
   if(err) { 
     console.log('ERROR there are likely duplicate entries'); 
   } else {
-    console.log('creating product test' + i);
+    console.log('creating product watch');
   }
 })
 
