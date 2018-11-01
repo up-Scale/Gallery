@@ -31,18 +31,18 @@ const createProductRecord = (json, cb) => {
 }
 
 const getProductRecord = (name, cb) => {
-    Product.findOne({productName: name}).exec((err, data) => {
-      if(err) cb(err, null)
-      else if(!data) {
-        cb(new Error('404'), null)
-      } else {
-        const payload = {
-          bannerImageUrl: data.bannerImageUrl, 
-          images: data.productImageUrls
-        }
-        cb(null, payload)
+  Product.findOne({productName: name}).exec((err, data) => {
+    if(err) cb(err, null)
+    else if(!data) {
+      cb(new Error('404'), null)
+    } else {
+      const payload = {
+        bannerImageUrl: data.bannerImageUrl, 
+        images: data.productImageUrls
       }
-    });
+      cb(null, payload)
+    }
+  });
 }
 
 exports.createProductRecord = createProductRecord;
