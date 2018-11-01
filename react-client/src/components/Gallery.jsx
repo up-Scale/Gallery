@@ -52,7 +52,7 @@ class Gallery extends React.Component {
           overlay={this.state.overlay}
           handleClick={this.handleOverlayClick}
           src={this.props.src}
-          imgs={[this.props.src, ...this.props.imgs] || [this.props.src] || []}/>
+          imgs={[this.props.src, ...this.props.imgs]}/>
       </Container>
     )
   }

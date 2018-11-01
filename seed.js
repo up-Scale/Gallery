@@ -8,15 +8,15 @@ let giveMeCats = require('./server/testJson.js').giveMeCats;
 
 let test = require('./server/testJson.js');
 
-for(let i = 0; i < NUM_RECORDS; i++) {
-  db.createProductRecord(giveMeCats('test' + i) ,(err, result) => {
-    if(err) { 
-      console.log('ERROR there are likely duplicate entries'); 
-    } else {
-      console.log('creating product test' + i);
-    }
-  })
-}
+// for(let i = 0; i < NUM_RECORDS; i++) {
+//   db.createProductRecord(giveMeCats('test' + i) ,(err, result) => {
+//     if(err) { 
+//       console.log('ERROR there are likely duplicate entries'); 
+//     } else {
+//       console.log('creating product test' + i);
+//     }
+//   })
+// }
 
 db.createProductRecord(test.giveMeCats('cats') ,(err, result) => {
   if(err) { 

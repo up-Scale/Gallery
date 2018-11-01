@@ -9,7 +9,7 @@ module.exports.giveMeFlashlight = (productName) => {
     "https://massdrop-s3.imgix.net/product-images/nitecore-ec22-1000-lumen-infinite-led-flashlight/FP/5IeCUA3lQrq7pOJ2q1CJ_71a-JAdUymL._SL1280_.jpg?auto=format&fm=jpg&fit=crop&w=473&bg=f0f0f0&dpr=2", 
     "https://massdrop-s3.imgix.net/product-images/nitecore-ec22-1000-lumen-infinite-led-flashlight/FP/5i35oRiSxeDlJT2Jrs2n_watermark.jpg?auto=format&fm=jpg&fit=crop&w=473&bg=f0f0f0&dpr=2", 
     "https://massdrop-s3.imgix.net/product-images/nitecore-ec22-1000-lumen-infinite-led-flashlight/FP/c6icUJO7TbGowMXu3onU_TxTxLSa.jpg?auto=format&fm=jpg&fit=crop&w=313&bg=f0f0f0&dpr=2"
-  ]
+    ]
   }
 }
 

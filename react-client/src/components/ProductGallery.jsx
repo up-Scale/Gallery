@@ -30,7 +30,7 @@ class ProductGallery extends React.Component {
       console.log(res.data);
       this.setState({
         bannerImg: res.data.bannerImageUrl,
-        carouselImgs: [res.data.images]
+        carouselImgs: res.data.images.split(',')
       })
     })
   }
