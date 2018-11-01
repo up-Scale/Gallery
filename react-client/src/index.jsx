@@ -12,8 +12,8 @@ const SAMPLE_IMG_5 = 'https://images.pexels.com/photos/74177/cat-74177.jpeg?auto
 
 const GalleryContainer = () => {
   return(<div>
-    {/* <ProductGallery/> */}
-    <Gallery src={SAMPLE_IMG_1} imgs={[SAMPLE_IMG_0, SAMPLE_IMG_2, SAMPLE_IMG_5, SAMPLE_IMG_4]} />
+    <ProductGallery/>
+    {/* <Gallery src={SAMPLE_IMG_1} imgs={[SAMPLE_IMG_0, SAMPLE_IMG_2, SAMPLE_IMG_5, SAMPLE_IMG_4]} /> */}
     {/* <Gallery src={SAMPLE_IMG_2}/>
     <Gallery src={SAMPLE_IMG_3}/>
     <Gallery src={SAMPLE_IMG_4}/>

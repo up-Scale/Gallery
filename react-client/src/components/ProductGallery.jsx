@@ -8,20 +8,26 @@ import axios from 'axios';
 // It gets all data for the db via ProductName.  It expects product.bannerImage and an array of images associated w the product
 class ProductGallery extends React.Component {
   constructor(props) {
+    console.log('product gallery constructor')
     super(props);
     this.state = { 
-      bannerImg: null,
-      carouselImgs: null
+      bannerImg: '',
+      carouselImgs: []
     }
   }
 
   componentDidMount() {
     let url = new URL(window.location.href)
     let productName = 'test1'
-    if (url.pathname !== '/') productName = url.pathname.split('/')[url.pathname.split('/') - 1]
-
+    if (url.pathname !== '/') {
+      productName = url.pathname.split('/')[2]
+    }
+    
     axios.get('/productImages/' + productName)
     .then(res => {
+      // let json = JSON.parse(res.data);
+      console.log('HI')
+      console.log(res.data);
       this.setState({
         bannerImg: res.data.bannerImageUrl,
         carouselImgs: [res.data.images]
