@@ -87,7 +87,7 @@ const ButtonLeft = styled.input`
   opacity: 1;
   ${CarouselImageWrapper}:hover & {
     opacity: 0;
-    }
+  }
 `
 const ButtonRight = styled.input`
   z-index: 3;
@@ -131,7 +131,7 @@ class GalleryOverlay extends React.Component {
 
   handleRightClick(e) {
     let i = this.state.centerImageIndex;
-    if (i < this.state.numImgs - 1) i++;
+    if (i < this.props.imgs.length - 1) i++;
     this.setState({ centerImageIndex: i })
   }
 
@@ -167,7 +167,7 @@ class GalleryOverlay extends React.Component {
             <CarouselSection>
               <CarouselImageWrapper>
                 {this.props.imgs.map((item, index, array) => {
-                  return (<CarouselImage src={item}/>)
+                  return (<CarouselImage key={index} src={item}/>)
                 })}
               </CarouselImageWrapper>
             </CarouselSection>
