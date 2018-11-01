@@ -167,7 +167,7 @@ class GalleryOverlay extends React.Component {
             <CarouselSection>
               <CarouselImageWrapper>
                 {this.props.imgs.map((item, index, array) => {
-                  return (<CarouselImage src={item}/>)
+                  return (<CarouselImage key={index} src={item}/>)
                 })}
               </CarouselImageWrapper>
             </CarouselSection>
