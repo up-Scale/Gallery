@@ -33,11 +33,15 @@ const createProductRecord = (json, cb) => {
 const getProductRecord = (name, cb) => {
   Product.findOne({productName: name}).exec((err, data) => {
     if(err) cb(err, null)
-    const payload = {
-      bannerImageUrl: data.bannerImageUrl, 
-      images: data.productImageUrls
+    else if(!data) {
+      cb(new Error('404'), null)
+    } else {
+      const payload = {
+        bannerImageUrl: data.bannerImageUrl, 
+        images: data.productImageUrls
+      }
+      cb(null, payload)
     }
-    cb(null, payload)
   });
 }
 

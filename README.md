@@ -7,6 +7,6 @@
 ## $ npm run react-dev
 
 # Seed Local MongoDB
-## databse >> deltaDrop
-## collection >> products
+## databse: deltaDrop
+## collection: products
 ## $ npm run seed
