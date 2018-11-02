@@ -3,3 +3,8 @@ node_modules
 /react-client/dist/gallery.bundle.js
 
 package-lock.json
+
+*.pem
+
+config.prod.js
+
