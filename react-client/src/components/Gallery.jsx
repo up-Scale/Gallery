@@ -1,6 +1,6 @@
 
 import React from 'react';
-import GalleryOverlay from './Overlay.jsx'
+import GalleryOverlay from './overlay.jsx'
 import styled from 'styled-components';
 
 // Gallery is general component which will behave like an image tag, accepting a src url and possibly a list of carousel image src urls
