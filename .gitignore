@@ -3,3 +3,5 @@ node_modules
 /react-client/dist/gallery.bundle.js
 
 package-lock.json
+
+bmngld.pem
