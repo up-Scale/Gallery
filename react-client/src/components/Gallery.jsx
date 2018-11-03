@@ -1,6 +1,6 @@
 
 import React from 'react';
-import GalleryOverlay from './Overlay.jsx'
+import GalleryOverlay from './overlay.jsx'
 import styled from 'styled-components';
 
 // Gallery is general component which will behave like an image tag, accepting a src url and possibly a list of carousel image src urls
@@ -36,6 +36,7 @@ class Gallery extends React.Component {
     this.state = { 
       overlay: false,
     }
+    
     this.handleImageClick = () => this.setState({ overlay: true })
     this.handleOverlayClick = () => this.setState({ overlay: false})
   }
@@ -52,7 +53,7 @@ class Gallery extends React.Component {
           overlay={this.state.overlay}
           handleClick={this.handleOverlayClick}
           src={this.props.src}
-          imgs={[this.props.src, ...this.props.imgs] || [this.props.src] || []}/>
+          imgs={[this.props.src, ...this.props.imgs]}/>
       </Container>
     )
   }
