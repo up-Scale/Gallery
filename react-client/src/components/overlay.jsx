@@ -77,26 +77,43 @@ const CarouselHeader = styled.div`
   height: 40px;
   margin: 0 10px 10px;
 `
+const ButtonLeftWrapper = styled.div`
+position: fixed;
+`
+
+const ButtonRightWrapper = styled.div`
+  position: fixed;
+`
+
 const ButtonLeft = styled.input`
   z-index: 3;
   height: 10%
   float: left;
   position: fixed;
+  display: block;
   top: 40%;
   left: 3%;
-  opacity: 1;
-  ${CarouselImageWrapper}:hover & {
-    opacity: 0;
+  opacity: 0;
+  ${ButtonLeftWrapper}:hover & {
+    opacity: 1;
   }
 `
+
+
+
 const ButtonRight = styled.input`
   z-index: 3;
   height: 10%
   float: right;
   position: fixed;
+  display: block;
   top: 40%;
   left: 92%
   transform: rotate(180deg);
+  opacity: 0;
+  ${ButtonRightWrapper}:hover & {
+    opacity: 1;
+  }
 `
 const ButtonExit = styled.input`
   z-index: 3;
@@ -157,11 +174,15 @@ class GalleryOverlay extends React.Component {
             </BannerContainer>
 
             {/* <LeftHalf> */}
-            <ButtonLeft onClick={this.handleLeftClick} type="image" src="https://cdn0.iconfinder.com/data/icons/basic-ui-elements-round/700/01_arrow_left-128.png"/>
+            <ButtonLeftWrapper>
+              <ButtonLeft onClick={this.handleLeftClick} type="image" src="https://cdn0.iconfinder.com/data/icons/basic-ui-elements-round/700/01_arrow_left-128.png"/>
+            </ButtonLeftWrapper>
             {/* </LeftHalf> */}
 
             {/* <RightHalf> */}
+            <ButtonRightWrapper>
             <ButtonRight onClick={this.handleRightClick} type="image" src="https://cdn0.iconfinder.com/data/icons/basic-ui-elements-round/700/01_arrow_left-128.png"/>
+            </ButtonRightWrapper>
             {/* </RightHalf> */}
 
             <CarouselSection>
