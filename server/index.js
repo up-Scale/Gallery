@@ -3,10 +3,10 @@ let parser = require('body-parser')
 let path = require('path')
 let cors = require('cors');
 
-app.use(cors());
 
 let app = express();
 
+app.use(cors());
 let db = require('../db/index.js')
 
 app.use(express.static(__dirname + '/../react-client/dist'));
