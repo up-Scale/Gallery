@@ -1,6 +1,9 @@
 let express = require('express');
 let parser = require('body-parser')
 let path = require('path')
+let cors = require('cors');
+
+app.use(cors());
 
 let app = express();
 
