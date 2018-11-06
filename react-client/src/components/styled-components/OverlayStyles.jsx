@@ -78,7 +78,7 @@ const CarouselHeader = styled.div`
   margin: 0 10px 10px;
 `
 const ButtonLeftWrapper = styled.div`
-position: fixed;
+  position: fixed;
 `
 
 const ButtonRightWrapper = styled.div`
