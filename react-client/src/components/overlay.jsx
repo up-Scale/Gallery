@@ -20,137 +20,6 @@ import {
   ButtonExit
 } from './styled-components/OverlayStyles.jsx';
 
-// const Overlay = styled.div`
-//   height: 100%;
-//   width: 100%;
-//   display: ${props => props.overlay ? "block" : "none"};
-//   position: fixed;
-//   z-index: 1;
-//   top: 0;
-//   left: 0;
-//   background-color: rgb(0,0,0);
-//   background-color: rgba(0,0,0, 0.9);
-// `
-// const CenterImage = styled.img`
-//   max-width: 80%;
-//   position: relative;
-//   display:block;
-//   margin:auto;
-// `
-// const BannerSpacer = styled.div`
-//   margin-top: 10px;
-// `
-// const BannerContainer = styled.div`
-//   position: relative;
-//   max-height: 20%;
-//   justify-content: center;
-//   max-height: 65vh;
-// `
-// const CenterImageWrapper = styled.span`
-//   width: 100%;
-//   position: relative;
-//   display: inline-block;
-//   box-sizing: inherit;
-// `
-// const ContentContainer = styled.div`
-//   position: relative;
-//   z-index: 1;
-//   box-sizing: inherit;
-// `
-// const CarouselSection = styled.section`
-//   padding-left: 24px;
-//   padding-right: 24px;  
-// `
-// const CarouselWrapper = styled.div`
-//   display: block;
-//   box-sizing: inherit;
-// `
-// const CarouselImage = styled.img`
-//   display: inline-block
-//   position: relative;
-//   margin: auto;
-//   width: 120px;
-//   float: left;
-//   padding: 5px;
-// `
-// const CarouselImageWrapper = styled.div`
-//   -webkit-flex: 1;
-//   position: fixed;
-//   bottom: 3%;
-//   width: 100%;
-//   display: flex;
-//   flex-direction: row;
-//   justify-content: center;
-//   align-items: center;
-//   text-align: center;
-//   clear:both;
-// `
-// const CarouselContainer = styled.div`
-//   position: relative;
-//   height: 100%;
-//   width: 100%;
-//   max-width: 1300px;
-// `
-// const CarouselHeader = styled.div`
-//   padding-top: 10px;
-//   height: 40px;
-//   margin: 0 10px 10px;
-// `
-// const ButtonLeftWrapper = styled.div`
-// position: fixed;
-// `
-
-// const ButtonRightWrapper = styled.div`
-//   position: fixed;
-// `
-
-// const ButtonLeft = styled.input`
-//   z-index: 3;
-//   height: 10%
-//   float: left;
-//   position: fixed;
-//   display: block;
-//   top: 40%;
-//   left: 3%;
-//   opacity: 0;
-//   ${ButtonLeftWrapper}:hover & {
-//     opacity: 1;
-//   }
-// `
-// const ButtonRight = styled.input`
-//   z-index: 3;
-//   height: 10%
-//   float: right;
-//   position: fixed;
-//   display: block;
-//   top: 40%;
-//   left: 92%
-//   transform: rotate(180deg);
-//   opacity: 0;
-//   ${ButtonRightWrapper}:hover & {
-//     opacity: 1;
-//   }
-// `
-// const ButtonExit = styled.input`
-//   z-index: 3;
-//   height: 10%;
-//   float: right;
-//   position: fixed;
-//   top: 5%
-//   left:90%
-// `
-// const LeftHalf = styled.div`
-// position: absolute;
-// left: 0px;
-// width: 50%
-// `
-
-// const RightHalf = styled.div`
-// position: absolute;
-// right: 0px;
-// width: 50%;
-// `
-
 class GalleryOverlay extends React.Component {
   constructor(props) {
     super(props);
@@ -178,10 +47,13 @@ class GalleryOverlay extends React.Component {
     return(
       <Overlay overlay={this.props.overlay}>
         <CarouselContainer>
+          
           <CarouselHeader>
             <ButtonExit onClick={this.props.handleClick} type="image" src="https://cdn3.iconfinder.com/data/icons/iconic-1/32/x_alt-512.png"/>
           </CarouselHeader>
+          
           <ContentContainer>
+            
             <BannerContainer> 
               <CenterImageWrapper>
                 <CenterImage src={this.props.imgs[this.state.centerImageIndex]}/>  
@@ -189,25 +61,24 @@ class GalleryOverlay extends React.Component {
               <BannerSpacer/>
             </BannerContainer>
 
-            {/* <LeftHalf> */}
             <ButtonLeftWrapper>
               <ButtonLeft onClick={this.handleLeftClick} type="image" src="https://cdn0.iconfinder.com/data/icons/basic-ui-elements-round/700/01_arrow_left-128.png"/>
             </ButtonLeftWrapper>
-            {/* </LeftHalf> */}
 
-            {/* <RightHalf> */}
             <ButtonRightWrapper>
-            <ButtonRight onClick={this.handleRightClick} type="image" src="https://cdn0.iconfinder.com/data/icons/basic-ui-elements-round/700/01_arrow_left-128.png"/>
+              <ButtonRight onClick={this.handleRightClick} type="image" src="https://cdn0.iconfinder.com/data/icons/basic-ui-elements-round/700/01_arrow_left-128.png"/>
             </ButtonRightWrapper>
-            {/* </RightHalf> */}
 
-            <CarouselSection>
-              <CarouselImageWrapper>
-                {this.props.imgs.map((item, index, array) => {
-                  return (<CarouselImage key={index} src={item}/>)
-                })}
-              </CarouselImageWrapper>
-            </CarouselSection>
+            <CarouselWrapper>
+              <CarouselSection>
+                <CarouselImageWrapper>
+                  {this.props.imgs.map((item, index, array) => {
+                    return (<CarouselImage key={index} src={item}/>)
+                  })}
+                </CarouselImageWrapper>
+              </CarouselSection>
+            </CarouselWrapper>
+
           </ContentContainer>
         </CarouselContainer>
       </Overlay>)
