@@ -28,15 +28,15 @@ class ProductGallery extends React.Component {
     
     axios.get('/productImages/' + productName)
       .then(res => {
-      console.log('line 31', res.data)
-      this.setState({
-        bannerImg: res.data.bannerImageUrl,
-        carouselImgs: res.data.images.split(','),
-        fourOhFour: false
+        this.setState({
+          bannerImg: res.data.bannerImageUrl,
+          carouselImgs: res.data.images.split(','),
+          fourOhFour: false
+        })
       })
-    })
     .catch(err => {
-      if (err.message === 'Request failed with status code 404') {
+      console.log('axios.get err is:', err)
+      if (err) {
         this.setState({
           fourOhFour: true
         })
