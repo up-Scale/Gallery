@@ -8,8 +8,8 @@
     "react": "webpack -d",
     "server-dev": "nodemon server/index.js",
     "server": "node server/index.js",
-    "seed": "node seed.js",
-    "test": "jest"
+    "test": "jest",
+    "seed-mongo": "node seedMongo.js"
   },
   "repository": {
     "type": "git",
@@ -33,6 +33,7 @@
     "body-parser": "^1.18.3",
     "cors": "^2.8.4",
     "express": "^4.16.4",
+    "faker": "^4.1.0",
     "jest": "^23.6.0",
     "mongoose": "^5.3.6",
     "react": "^16.5.2",

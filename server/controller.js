@@ -1,4 +1,4 @@
-const { getProductRecord, createProductRecord, modifyProductRecord, deleteProductRecord } = require('./model.js');
+const { getProductRecord, createProductRecord, modifyProductRecord, deleteProductRecord } = require('./models/mongoModel.js');
 
 module.exports = {
   postController: (req, res) => {
