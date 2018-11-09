@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const db = require('../db/index.js');
-const { Product } = require('../db/schema.js')
+const db = require('../../db/index.js');
+const { Product } = require('../../db/schemaMongo.js');
 
 const createProductRecord = (json, cb) => {
   const product = new Product({
