@@ -9,3 +9,5 @@ bmngld.pem
 *.pem
 
 config.prod.js
+
+config.js

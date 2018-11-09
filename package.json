@@ -9,7 +9,12 @@
     "server-dev": "nodemon server/index.js",
     "server": "node server/index.js",
     "test": "jest",
-    "seed-mongo": "bash seedMongo.sh"
+    "dataGenerator": "node db/dataGenerator.js",
+    "seed-mongo": "bash db/seed/seedMongo.sh",
+    "seed-PSQL": "bash db/seed/seedPSQL.sh",
+    "postgres-enter": "psql postgres",
+    "postgres-start": "pg_ctl -D /usr/local/var/postgres start",
+    "postgres-stop": "pg_ctl -D /usr/local/var/postgres stop"
   },
   "repository": {
     "type": "git",
@@ -36,8 +41,10 @@
     "faker": "^4.1.0",
     "jest": "^23.6.0",
     "mongoose": "^5.3.6",
+    "pg": "^7.6.1",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
+    "sequelize": "^4.41.1",
     "styled-components": "^4.0.2"
   },
   "devDependencies": {

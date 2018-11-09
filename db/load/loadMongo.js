@@ -1,9 +1,9 @@
 console.log('Seeding MongoDB');
 
-const db = require('./db/index.js');
+const db = require('../index.js');
 const { Product } = require('./db/schemaMongo.js')
-const { createProductRecord, getProductRecord, modifyProductRecord, deleteProductRecord } = require('./server/models/mongoModel.js');
-const { jsonCreator } = require('./dataGenerator.js');
+const { createProductRecord, getProductRecord, modifyProductRecord, deleteProductRecord } = require('../../server/models/mongoModel.js');
+const { jsonCreator } = require('../dataGenerator.js');
 
 let NUM_RECORDS = 1000;
 
