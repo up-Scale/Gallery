@@ -1,0 +1,1 @@
+mongo --eval "db.collection.insertOne({ productName: 'Car42056}', bannerImageUrl: 'https://picsum.photos/200/300/?53636', productImageUrls: [ 'https://picsum.photos/200/300/?44234', 'https://picsum.photos/200/300/?1290', 'https://picsum.photos/200/300/?97672' ] })"

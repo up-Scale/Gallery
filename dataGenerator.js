@@ -24,4 +24,6 @@ const jsonCreator = () => {
   return json;
 }
 
+jsonCreator();
+
 exports.jsonCreator = jsonCreator;

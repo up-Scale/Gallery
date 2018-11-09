@@ -9,7 +9,7 @@
     "server-dev": "nodemon server/index.js",
     "server": "node server/index.js",
     "test": "jest",
-    "seed-mongo": "node seedMongo.js"
+    "seed-mongo": "bash seedMongo.sh"
   },
   "repository": {
     "type": "git",
