@@ -11,3 +11,5 @@ bmngld.pem
 config.prod.js
 
 config.js
+
+db/products.csv
