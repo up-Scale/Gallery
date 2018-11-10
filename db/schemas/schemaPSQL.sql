@@ -2,7 +2,8 @@ DROP DATABASE IF EXISTS upScale
 CREATE DATABASE upScale
 
 CREATE TABLE Products (
-  `productName` varchar PRIMARY KEY
+  `id` INT NOT NULL PRIMARY KEY
+  `productName` varchar
   `bannerImageUrl` varchar
   `productImageUrls` varchar
 );
