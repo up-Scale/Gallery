@@ -7,14 +7,8 @@ var randomSuffix = faker.lorem.word;
 var imgBase = 'https://picsum.photos/200/300/?'
 var randomNum = faker.random.number;
 
-prodImgUrlsNum = () => {
-  min = Math.ceil(0);
-  max = Math.floor(10);
-  return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
-};
-
 singleData = () => {
-  const num = prodImgUrlsNum();
+  const num = Math.floor(Math.random() * (11));
   let prodImages = ''
   for (let i = 0; i < num; i++) {
     if (i < num - 1) {
