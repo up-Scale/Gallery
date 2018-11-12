@@ -6,10 +6,6 @@ var randomProduct = faker.commerce.product;
 var imgBase = 'https://picsum.photos/200/300/?'
 var randomNum = faker.random.number;
 
-var stream = fs.createWriteStream('db/products.csv', { flags: 'a' });
-stream.write(`"productName", "bannerImageUrl", "productImageUrls"
-`);
-
 prodImgUrlsNum = () => {
   min = Math.ceil(0);
   max = Math.floor(10);
@@ -30,6 +26,10 @@ singleData = () => {
 `;
 };
 
+var stream = fs.createWriteStream('db/products.csv', { flags: 'a' });
+stream.write(`"productName", "bannerImageUrl", "productImageUrls"
+`);
+
 bulkData = () => {
   let data = '';
   for (let i = 0; i < 10000; i++) {
@@ -40,15 +40,15 @@ bulkData = () => {
 };
 
 dataGenerator = (thisRound, totalRounds) => {
-  console.time('dataGenerator');
-  console.log('begin', thisRound);
+  console.time('data generation took');
+  console.log('begin');
   stream.on('drain', () => {
     if (thisRound < totalRounds) {
       thisRound++;
       console.log(thisRound);
       bulkData();
     } else {
-      console.timeEnd('dataGenerator');
+      console.timeEnd('data generation took');
     }
   });
   bulkData();
