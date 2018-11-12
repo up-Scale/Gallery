@@ -3,6 +3,7 @@ const fs = require('fs');
 var stream = require('stream');
 
 var randomProduct = faker.commerce.product;
+var randomSuffix = faker.lorem.word;
 var imgBase = 'https://picsum.photos/200/300/?'
 var randomNum = faker.random.number;
 
@@ -22,11 +23,11 @@ singleData = () => {
       prodImages += `${imgBase}${randomNum()}`;
     }
   };
-  return `${randomProduct()}${randomNum()}, ${imgBase}${randomNum()}, ${prodImages}
+  return `${randomProduct()}${randomNum()}${randomSuffix()}${randomNum()}, ${imgBase}${randomNum()}, ${prodImages}
 `;
 };
 
-var stream = fs.createWriteStream('db/products.csv', { flags: 'a' });
+var stream = fs.createWriteStream('db/smalltest.csv', { flags: 'a' });
 stream.write(`"productName", "bannerImageUrl", "productImageUrls"
 `);
 
@@ -54,4 +55,4 @@ dataGenerator = (thisRound, totalRounds) => {
   bulkData();
 };
 
-dataGenerator(0, 1000);
+dataGenerator(0, 3);
