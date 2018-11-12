@@ -13,3 +13,7 @@ config.prod.js
 config.js
 
 db/products.csv
+
+db/smalltest.csv
+
+*.csv
