@@ -1,1 +1,4 @@
-mongo --eval "db.collection.insertOne({ productName: 'Car42056}', bannerImageUrl: 'https://picsum.photos/200/300/?53636', productImageUrls: [ 'https://picsum.photos/200/300/?44234', 'https://picsum.photos/200/300/?1290', 'https://picsum.photos/200/300/?97672' ] })"
+mongo upScale --eval "db.dropDatabase()"
+mongo upScale --eval "db.Products.createIndex( { \"productName\": 1 }, { unique: true } )"
+time mongoimport -d 'upScale' -c 'Products' --type csv --file db/products.csv --headerline --ignoreBlanks
+mongo upScale --eval "db.Products.count()"
