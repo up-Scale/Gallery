@@ -3,12 +3,9 @@ const fs = require('fs');
 var stream = require('stream');
 
 var randomProduct = faker.commerce.product;
+var randomSuffix = faker.lorem.word;
 var imgBase = 'https://picsum.photos/200/300/?'
 var randomNum = faker.random.number;
-
-var stream = fs.createWriteStream('db/products.csv', { flags: 'a' });
-stream.write(`"productName", "bannerImageUrl", "productImageUrls"
-`);
 
 prodImgUrlsNum = () => {
   min = Math.ceil(0);
@@ -26,9 +23,13 @@ singleData = () => {
       prodImages += `${imgBase}${randomNum()}`;
     }
   };
-  return `${randomProduct()}${randomNum()}, ${imgBase}${randomNum()}, ${prodImages}
+  return `${randomProduct()}${randomNum()}${randomSuffix()}${randomNum()}, ${imgBase}${randomNum()}, ${prodImages}
 `;
 };
+
+var stream = fs.createWriteStream('db/products.csv', { flags: 'a' });
+stream.write(`"productName", "bannerImageUrl", "productImageUrls"
+`);
 
 bulkData = () => {
   let data = '';
@@ -40,18 +41,18 @@ bulkData = () => {
 };
 
 dataGenerator = (thisRound, totalRounds) => {
-  console.time('dataGenerator');
-  console.log('begin', thisRound);
+  console.time('data generation took');
+  console.log('begin');
   stream.on('drain', () => {
     if (thisRound < totalRounds) {
       thisRound++;
       console.log(thisRound);
       bulkData();
     } else {
-      console.timeEnd('dataGenerator');
+      console.timeEnd('data generation took');
     }
   });
   bulkData();
 };
 
-dataGenerator(0, 1000);
+dataGenerator(0, 999);
