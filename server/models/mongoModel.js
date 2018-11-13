@@ -13,7 +13,7 @@ const createProductRecord = (json, cb) => {
   });
 };
 
-const getProductRecord =  (name, cb) => {
+const getProductRecord = (name, cb) => {
   Product.findOne({ productName: name }).exec((err, data) => {
     if (err) cb(err, null)
     else if (!data) {
@@ -29,7 +29,6 @@ const getProductRecord =  (name, cb) => {
 };
 
 const modifyProductRecord = (name, newInfo, cb) => {
-  console.log('model.js newInfo is:', newInfo)
   Product.findOneAndUpdate({ productName: name }, newInfo).exec((err, data) => {
     if (err) cb(err, null)
     else if (!data) {
