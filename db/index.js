@@ -12,18 +12,6 @@
 
 
 /* PostgreSQL/Sequelize */
-// const Sequelize = require('sequelize');
-// var db = new Sequelize('postgres', 'Stacy', 'password', {
-//   host: 'localhost',
-//   dialect: 'postgres',
-
-//   pool: {
-//     max: 5,
-//     min: 0,
-//     idle: 10000
-//   }
-// });
-
 const Sequelize = require('sequelize');
 var db = new Sequelize('postgres', 'Stacy', '', {
   host: 'localhost',

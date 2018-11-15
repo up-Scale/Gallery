@@ -19,11 +19,13 @@ const getProductRecord = (name, cb) => {
     else if (!data) {
       cb(new Error('404'), null)
     } else {
-      const payload = {
-        bannerImageUrl: data.bannerImageUrl,
-        images: data.productImageUrls
-      }
-      cb(null, payload)
+      // const payload = {
+      //   productName: data.productName,
+      //   bannerImageUrl: data.bannerImageUrl,
+      //   images: data.productImageUrls
+      // }
+      cb(null, data)
+      // cb(null, payload)
     }
   });
 };
