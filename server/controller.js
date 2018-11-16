@@ -1,5 +1,5 @@
-// const { getProductRecord, createProductRecord, modifyProductRecord, deleteProductRecord } = require('./models/mongoModel.js');
-const { getProductRecord, createProductRecord, modifyProductRecord, deleteProductRecord } = require('./models/psqlModel.js');
+const { getProductRecord, createProductRecord, modifyProductRecord, deleteProductRecord } = require('./models/mongoModel.js');
+// const { getProductRecord, createProductRecord, modifyProductRecord, deleteProductRecord } = require('./models/psqlModel.js');
 
 module.exports = {
   postController: (req, res) => {
