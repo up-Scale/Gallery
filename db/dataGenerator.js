@@ -22,8 +22,6 @@ singleData = () => {
 };
 
 var stream = fs.createWriteStream('db/products.csv', { flags: 'a' });
-// stream.write(`"productName","bannerImageUrl","productImageUrls"
-// `);
 stream.write(`"productName","bannerImageUrl","images"
 `);
 
@@ -51,4 +49,4 @@ dataGenerator = (thisRound, totalRounds) => {
   bulkData();
 };
 
-dataGenerator(0, 999);
+dataGenerator(1, 1000);

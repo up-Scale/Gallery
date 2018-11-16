@@ -9,7 +9,6 @@ router.get('/productImages/:productName', getController);
 router.put('/productImages/:productName', putController);
 router.delete('/productImages/:productName', deleteController);
 
-
 router.get('/*', (req, res) => {
   res.sendFile(path.resolve('react-client/dist/index.html'))
 });

@@ -9,12 +9,17 @@ const createProductRecord = (json, cb) => {
 };
 
 const getProductRecord = (name, cb) => {
+  console.log(name);
   let query = `SELECT * FROM public.products WHERE "productName" = '${name}';`;
   db.query(query, { plain: true})
     .then(result => {
+      console.log(result);
       cb(null, result)
     })
-    .catch(error => { cb(error, null) })
+    .catch(error => {
+      console.log(error);
+      cb(error, null)
+    })
 };
 
 const modifyProductRecord = (name, newInfo, cb) => {

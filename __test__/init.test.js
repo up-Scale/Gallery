@@ -1,12 +1,14 @@
-// function sum(a, b) {
-//   return a + b;
-// }
+const request = require('supertest');
+const express = require('express');
 
-// test('adds 1 + 2 to equal 3', () => {
-//   expect(sum(1, 2)).toBe(3);
-// });
+const app = express();
 
-// test('two plus two is four', () => {
-//   expect(2 + 2).toBe(4);
-// });
-
+describe('GET /productImages/:productName', function() {
+  it('respond with json', function(done) {
+    request(app)
+      .get('/productImages/Pizza28965porro56054')
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /html/)
+      .expect(200, done);
+  });
+});
