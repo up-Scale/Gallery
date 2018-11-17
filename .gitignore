@@ -17,3 +17,5 @@ db/products.csv
 db/smalltest.csv
 
 *.csv
+
+newrelic.js

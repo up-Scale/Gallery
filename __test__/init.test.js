@@ -1,14 +1,13 @@
 const request = require('supertest');
-const express = require('express');
+const { app } = require('../server/index.js')
 
-const app = express();
-
-describe('GET /productImages/:productName', function() {
-  it('respond with json', function(done) {
+describe('GET /productImages/:productName', () => {
+  it('respond with json', (done) => {
     request(app)
       .get('/productImages/Pizza28965porro56054')
-      .set('Accept', 'application/json')
-      .expect('Content-Type', /html/)
-      .expect(200, done);
+      .expect('Content-Type', /json/)
+      .expect(200);
+      done();
   });
 });
+
