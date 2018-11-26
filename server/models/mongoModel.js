@@ -8,45 +8,32 @@ const createProductRecord = (json, cb) => {
     bannerImageUrl: json.bannerImageUrl,
     productImageUrls: json.productImageUrls
   }).save(function (err, product) {
-    if (err) cb(err, null);
+    if (err) { cb(err, null) };
     cb(null, product)
   });
 };
 
 const getProductRecord = (name, cb) => {
   Product.findOne({ productName: name }).exec((err, data) => {
-    if (err) cb(err, null)
-    else if (!data) {
-      cb(new Error('404'), null)
-    } else {
-      const payload = {
-        bannerImageUrl: data.bannerImageUrl,
-        images: data.productImageUrls
-      }
-      cb(null, payload)
-    }
+    if (err) { cb(err, null) }
+    else if (!data) { cb(new Error('404'), null) }
+    else { cb(null, data) }
   });
 };
 
 const modifyProductRecord = (name, newInfo, cb) => {
   Product.findOneAndUpdate({ productName: name }, newInfo).exec((err, data) => {
-    if (err) cb(err, null)
-    else if (!data) {
-      cb(new Error('404'), null)
-    } else {
-      cb(null, data)
-    }
+    if (err) { cb(err, null) }
+    else if (!data) { cb(new Error('404'), null) }
+    else { cb(null, data) }
   });
 };
 
 const deleteProductRecord = (name, cb) => {
   Product.deleteOne({ productName: name }).exec((err, data) => {
-    if (err) cb(err, null)
-    else if (!data) {
-      cb(new Error('404'), null)
-    } else {
-      cb(null, data)
-    }
+    if (err) { cb(err, null) }
+    else if (!data) { cb(new Error('404'), null) }
+    else { cb(null, data) }
   });
 };
 

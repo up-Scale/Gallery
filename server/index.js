@@ -1,8 +1,9 @@
+require('newrelic');
 const express = require('express');
 const parser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
-const router = require('./routes.js')
+const router = require('./routes.js');
 
 const db = require('../db/index.js')
 const app = express();
@@ -19,4 +20,6 @@ app.get('/buy/:productName', (req, res) => {
 
 app.listen(3000, () => {
   console.log('listening on 3000')
-})
+});
+
+module.exports.app = app;
