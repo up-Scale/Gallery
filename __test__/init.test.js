@@ -10,4 +10,3 @@ describe('GET /productImages/:productName', () => {
       done();
   });
 });
-
