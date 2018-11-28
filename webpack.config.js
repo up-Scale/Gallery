@@ -3,9 +3,11 @@ var SRC_DIR = path.join(__dirname, '/react-client/src');
 var DIST_DIR = path.join(__dirname, '/react-client/dist');
 
 module.exports = {
-  entry: `${SRC_DIR}/index.jsx`,
+  entry: `${SRC_DIR}/index.js`,
+  // entry: `${SRC_DIR}/index.jsx`,
+  // entry: `${SRC_DIR}/components/ProductGallery.jsx`,
   output: {
-    filename: 'gallery.bundle.js',
+    filename: 'gallerybundle.js',
     path: DIST_DIR
   },
   module : {

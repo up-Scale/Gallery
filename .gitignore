@@ -1,16 +1,18 @@
 node_modules
 
-/react-client/dist/gallery.bundle.js
+/react-client/dist/gallerybundle.js
 
 package-lock.json
 
-bmngld.pem
+upScale_Gallery_Database.pem
 
 *.pem
 
 config.prod.js
 
 config.js
+
+webpack.config.js
 
 db/products.csv
 
@@ -19,3 +21,9 @@ db/smalltest.csv
 *.csv
 
 newrelic.js
+
+*.log
+
+.babelrc
+
+notes.txt
