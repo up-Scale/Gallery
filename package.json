@@ -1,5 +1,5 @@
 {
-  "name": "dd-gallery",
+  "name": "upscale-gallery",
   "version": "1.0.0",
   "description": "a fullscreen image gallery with a carousel",
   "main": "server/index.js",
@@ -30,6 +30,7 @@
     "video"
   ],
   "author": "Ben Mangold",
+  "contributor": "Stacy Kim",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/DeltaDrop/dd-Gallery/issues"
@@ -37,7 +38,6 @@
   "homepage": "https://github.com/DeltaDrop/dd-Gallery#readme",
   "dependencies": {
     "@newrelic/native-metrics": "^3.1.2",
-    "artillery": "^1.6.0-25",
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "cors": "^2.8.4",
