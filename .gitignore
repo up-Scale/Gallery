@@ -4,26 +4,20 @@ node_modules
 
 package-lock.json
 
-upScale_Gallery_Database.pem
-
-*.pem
-
-config.prod.js
-
 config.js
 
 webpack.config.js
 
-db/products.csv
-
-db/smalltest.csv
-
-*.csv
-
 newrelic.js
 
-*.log
+notes.txt
 
 .babelrc
 
-notes.txt
+*.log
+
+*.csv
+
+*.pem
+
+*jmx
