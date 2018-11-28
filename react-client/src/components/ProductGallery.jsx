@@ -53,4 +53,4 @@ class ProductGallery extends React.Component {
   }
 }
 
-export default ProductGallery
+export default ProductGallery;
