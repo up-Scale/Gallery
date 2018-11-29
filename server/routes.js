@@ -31,8 +31,8 @@ router.get('/buy/:productName', (req, res) => {
 });
 
 router.get('/loaderio*', (req, res) => {
-  res.send('staticpath');
-})
+  res.send('loaderio-9bf5ee14e1f9b97794defe1a66b8cb14');
+});
 
 router.get('/*', (req, res) => {
   let staticpath = path.join(__dirname + '/../react-client/dist/')
