@@ -1,4 +1,4 @@
-import { username, password } from '../config.js'
+const { username, password } = require('../config.js');
 
 /* MongoDB/Mongoose */
 // const mongoose = require('mongoose');
@@ -30,7 +30,13 @@ import { username, password } from '../config.js'
 /* AWS EC2 */
 const Sequelize = require('sequelize');
 let uri = `postgresql://${username}:${password}@ec2-18-223-111-206.us-east-2.compute.amazonaws.com:5432/postgres`
-var db = new Sequelize(uri, {});
+var db = new Sequelize(uri, {
+  pool: {
+    max: 100,
+    min: 1,
+    idle: 10000
+  }
+});
 
 
 module.exports = db;

@@ -1,13 +1,13 @@
-const express = require('express');
-const path = require('path');
-const { getController, postController, putController, deleteController } = require('./controller.js');
+import express from 'express';
+import path from 'path';
+import { getController, postController, putController, deleteController } from './controller.js';
+import fs from 'fs';
 
 const router = express.Router();
 
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import GalleryContainer from '../react-client/src/index.jsx';
-const fs = require('fs');
 
 router.post('/productImages', postController);
 router.get('/productImages/:productName', getController);
@@ -15,7 +15,7 @@ router.put('/productImages/:productName', putController);
 router.delete('/productImages/:productName', deleteController);
 
 router.get('/buy/:productName', (req, res) => {
-  const app = ReactDOMServer.renderToString(<GalleryContainer />);
+  const hydrate = ReactDOMServer.renderToString(React.createElement(GalleryContainer));
   const indexFile = path.resolve('./react-client/dist/index.html');
 
   fs.readFile(indexFile, 'utf8', (err, data) => {
@@ -25,7 +25,7 @@ router.get('/buy/:productName', (req, res) => {
     }
 
     return res.send(
-      data.replace(`<div id="gallery"></div>`, `<div id="gallery">${app}</div>`)
+      data.replace(`<div id="gallery"></div>`, `<div id="gallery">${hydrate}</div>`)
     );
   });
 });
@@ -35,4 +35,4 @@ router.get('/*', (req, res) => {
   res.sendFile(staticpath)
 });
 
-module.exports = router;
+export default router;

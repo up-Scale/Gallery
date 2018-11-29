@@ -8,6 +8,7 @@ module.exports = {
         res.send(error);
       } else {
         res.send(response);
+        res.flush()
       }
     });
   },
@@ -19,6 +20,7 @@ module.exports = {
         res.send(error);
       } else {
         res.send(response);
+        res.flush()
       }
     });
   },
@@ -31,6 +33,7 @@ module.exports = {
         res.send(error);
       } else {
         res.send(response);
+        res.flush()
       }
     });
   },
@@ -42,6 +45,7 @@ module.exports = {
         res.send(error);
       } else {
         res.send(response);
+        res.flush()
       }
     });
   }

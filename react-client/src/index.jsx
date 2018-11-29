@@ -7,4 +7,4 @@ const GalleryContainer = () => {
   </div>)
 }
 
-module.exports = GalleryContainer;
+export default GalleryContainer;
