@@ -1,6 +1,6 @@
 import express from 'express';
 import path from 'path';
-import { getController, postController, putController, deleteController } from './controller.js';
+import { getCacheController, postController, putController, deleteController } from './controller.js';
 import fs from 'fs';
 
 const router = express.Router();
@@ -10,7 +10,7 @@ import ReactDOMServer from 'react-dom/server';
 import GalleryContainer from '../react-client/src/index.jsx';
 
 router.post('/productImages', postController);
-router.get('/productImages/:productName', getController);
+router.get('/productImages/:productName', getCacheController);
 router.put('/productImages/:productName', putController);
 router.delete('/productImages/:productName', deleteController);
 
@@ -29,6 +29,10 @@ router.get('/buy/:productName', (req, res) => {
     );
   });
 });
+
+router.get('/loaderio*', (req, res) => {
+  res.send('staticpath');
+})
 
 router.get('/*', (req, res) => {
   let staticpath = path.join(__dirname + '/../react-client/dist/')
