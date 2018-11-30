@@ -1,4 +1,3 @@
-import 'newrelic';
 import express from 'express';
 import parser from 'body-parser';
 import path from 'path';
@@ -18,11 +17,14 @@ app.use(parser.json());
 app.use(responseTime());
 app.use('/', router);
 
-const client = redis.createClient();
+const client = redis.createClient({
+  port: 6379,
+  host: process.env.REDIS_HOST || '127.0.0.1'
+});
 client.on('connect', () => { console.log('Redis client connected') });
 client.on('error', (err) => { console.log('Error: ' + err) });
 
-app.listen(3000, () => { console.log('listening on 3000')});
+app.listen(3005, () => { console.log('listening on 3005')});
 
 export { client } ;
 export default app;

@@ -18,7 +18,7 @@ const getController = (req, res) => {
     if (error) {
       res.send(error);
     } else {
-      client.set(productName, 3600, JSON.stringify(response))
+      client.setex(productName, 3600, JSON.stringify(response))
       res.send(response);
       res.flush()
     }

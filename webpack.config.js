@@ -1,5 +1,7 @@
-const path = require('path');
 const webpack = require('webpack');
+const path = require('path');
+const CompressionPlugin = require('compression-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const SRC_DIR = path.join(__dirname, '/react-client/src');
 const DIST_DIR = path.join(__dirname, '/react-client/dist');
 const nodeExternals = require('webpack-node-externals');
@@ -10,7 +12,7 @@ module.exports = [{
     filename: 'gallerybundle.js',
     path: DIST_DIR
   },
-  module : {
+  module: {
     rules : [
       {
         test : /\.jsx?/,
@@ -18,7 +20,14 @@ module.exports = [{
         loader: 'babel-loader'
       }
     ]
-  }
+  },
+  plugins: [
+    new CompressionPlugin(),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('production')
+    }),
+    new UglifyJsPlugin()
+  ]
 }, {
   entry: path.join(__dirname, '/server/index.js'),
   target: 'node',
@@ -39,5 +48,9 @@ module.exports = [{
         loader: 'babel-loader'
       }
     ],
-  }
+  },
+    plugins: [
+      new CompressionPlugin(),
+      new UglifyJsPlugin()
+  ]
 }];
