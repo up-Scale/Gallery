@@ -23,7 +23,6 @@ class ProductGallery extends React.Component {
     let productName = 'test1'
     if (url.pathname !== '/') {
       productName = url.pathname.split('/')[2];
-      console.log(productName);
     }
     
     axios.get('/productImages/' + productName)
@@ -35,7 +34,7 @@ class ProductGallery extends React.Component {
         })
       })
     .catch(err => {
-      console.log('axios.get err is:', err)
+      console.error('axios.get err is:', err)
       if (err) {
         this.setState({
           fourOhFour: true
@@ -54,4 +53,4 @@ class ProductGallery extends React.Component {
   }
 }
 
-export default ProductGallery
+export default ProductGallery;

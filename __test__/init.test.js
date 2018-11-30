@@ -1,7 +1,12 @@
-function sum(a, b) {
-  return a + b;
-}
+const request = require('supertest');
+const { app } = require('../server/index.js')
 
-test('adds 1 + 2 to equal 3', () => {
-  expect(sum(1, 2)).toBe(3);
+describe('GET /productImages/:productName', () => {
+  it('respond with json', (done) => {
+    request(app)
+      .get('/productImages/Pizza28965porro56054')
+      .expect('Content-Type', /json/)
+      .expect(200);
+      done();
+  });
 });
