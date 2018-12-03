@@ -8,6 +8,7 @@ const nodeExternals = require('webpack-node-externals');
 
 module.exports = [{
   entry: `${SRC_DIR}/index.js`,
+  mode: 'development',
   output: {
     filename: 'gallerybundle.js',
     path: DIST_DIR
@@ -31,6 +32,7 @@ module.exports = [{
 }, {
   entry: path.join(__dirname, '/server/index.js'),
   target: 'node',
+  mode: 'development',
   node: {
       __dirname: false,
       __filename: false,

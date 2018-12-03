@@ -30,8 +30,13 @@ router.get('/buy/:productName', (req, res) => {
   });
 });
 
+router.get('/galleryhtml/:productName', (req, res) => {
+  const galleryhtml = ReactDOMServer.renderToString(React.createElement(GalleryContainer));
+  res.send(galleryhtml);
+});
+
 router.get('/loaderio*', (req, res) => {
-  res.send('loaderio-9bf5ee14e1f9b97794defe1a66b8cb14');
+  res.send('loaderio-b21a435da3fd86e2674c11904803780a');
 });
 
 router.get('/*', (req, res) => {
